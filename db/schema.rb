@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20200324143602) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.integer  "establishment_id"
-    t.string   "street",           null: false
-    t.string   "neighborhood",     null: false
-    t.integer  "number",           null: false
+    t.integer  "establishment_city_id"
+    t.string   "street",                null: false
+    t.string   "neighborhood",          null: false
+    t.integer  "number",                null: false
     t.string   "cep"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["establishment_id"], name: "index_addresses_on_establishment_id", using: :btree
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["establishment_city_id"], name: "index_addresses_on_establishment_city_id", using: :btree
   end
 
   create_table "categories", force: :cascade do |t|
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20200324143602) do
 
   create_table "establishments", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "city_id"
     t.string   "name",                   null: false
     t.string   "description",            null: false
     t.string   "additional_information"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20200324143602) do
     t.string   "photo"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.index ["city_id"], name: "index_establishments_on_city_id", using: :btree
     t.index ["user_id"], name: "index_establishments_on_user_id", using: :btree
   end
 
