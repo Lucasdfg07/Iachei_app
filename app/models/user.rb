@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_one :city
+	belongs_to :city
 	has_many :establishments, dependent: :destroy
 
 	enum role: [:client, :shopkeeper]
