@@ -6,9 +6,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
-    <%= yield %>
+  	<main>
+      <section class="iachei_background">
+        <section class="iachei_logo"></section>
+      </section>
+
+      <section class="container">
+    		<%= yield %>
+      </section>
+  	</main>
   </body>
 </html>

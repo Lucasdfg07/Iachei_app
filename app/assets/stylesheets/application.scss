@@ -1,0 +1,21 @@
+@import "bootstrap";
+
+@import "welcome";
+
+body {
+	background-image: url('/assets/city.jpg');
+	background-size: cover;
+
+	.iachei_background {
+		background-color: rgba(245,245,245,0.3);
+		.iachei_logo {
+			display: absolute;
+			margin-top: 10%;
+			width: 30%;
+			height: 310px;
+			margin-left: 37%;
+			background-image: url('/assets/iachei.png');
+			opacity: 0.3;
+		}
+	}
+}
