@@ -1,3 +1,28 @@
+.auth_buttons {
+	margin-top: 18%;
+	padding-left:40px;
+
+	img {
+		width: 30px;
+	}
+
+	a {
+		padding:15px;
+		border-radius: 10px;
+		font-size: 1.1em;
+	}
+
+	.facebook_btn {
+		color: white;
+		background-color: #3b5998;
+	}
+
+	.google_btn {
+		color: black;
+		background-color: rgba(245,245,245,0.8);
+	}
+}
+
 footer {
 	margin-bottom: 50px;
 	a {

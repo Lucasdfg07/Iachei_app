@@ -8,14 +8,20 @@ body {
 
 	.iachei_background {
 		background-color: rgba(245,245,245,0.3);
+		position: absolute;
+		width: 100%;
+		margin-top: -5%;
+		z-index: 10;
+
 		.iachei_logo {
-			display: absolute;
-			margin-top: 10%;
-			width: 30%;
 			height: 310px;
-			margin-left: 37%;
 			background-image: url('/assets/iachei.png');
 			opacity: 0.3;
 		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 20;
 	}
 }
