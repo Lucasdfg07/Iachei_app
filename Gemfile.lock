@@ -122,6 +122,8 @@ GEM
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    polyamorous (2.3.0)
+      activerecord (>= 5.0)
     popper_js (1.16.0)
     puma (3.12.4)
     rack (2.2.2)
@@ -151,6 +153,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (13.0.1)
+    ransack (2.3.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.3.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -227,6 +235,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.1)
+  ransack
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

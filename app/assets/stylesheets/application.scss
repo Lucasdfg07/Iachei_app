@@ -2,26 +2,14 @@
 
 @import "welcome";
 @import "devise";
+@import "cities";
 
 body {
 	background-image: url('/assets/city.jpg');
 	background-size: cover;
 
-	.iachei_background {
-		background-color: rgba(245,245,245,0.3);
-		position: absolute;
-		width: 100%;
-		z-index: 10;
-
-		.iachei_logo {
-			height: 310px;
-			background-image: url('/assets/iachei.png');
-			opacity: 0.3;
-		}
-	}
-
 	.container {
-		margin-top: 14%;
+		margin-top: 8%;
 		position: relative;
 		z-index: 20;
 	}
