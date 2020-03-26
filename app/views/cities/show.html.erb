@@ -2,7 +2,7 @@
 
 	<section class="city_show">
 		<section class="perfil">
-			<%= image_tag 'img3.jpeg', alt: 'boate img' %>
+			<%= image_tag (@city.photo), alt: 'city img' %>
 		</section>
 
 		<%= link_to cities_path, class: 'float-left back_button' do %>
