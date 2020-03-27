@@ -16,4 +16,9 @@ class User < ApplicationRecord
 	      user.password = Devise.friendly_token[0,20]
 	    end
   	end
+
+  	
+  	def set_role(role)
+  		self.update(role: role)
+  	end
 end

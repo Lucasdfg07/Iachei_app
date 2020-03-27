@@ -11,6 +11,14 @@
 
   <body>
   	<main>
+      <% if alert %>
+        <p class="alert alert-danger alert"><%= alert %></p>
+      <% end %>
+
+      <% if notice %>
+        <p class="alert alert-success notice"><%= notice %></p>
+      <% end %>
+    
       <section class="container text-center">
     		<%= yield %>
       </section>

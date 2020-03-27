@@ -1,7 +1,10 @@
 class WelcomeController < ApplicationController
 	def index
-		if user_signed_in?
-			redirect_to cities_path
-		end
+	end
+
+	def set_user_role
+		current_user.set_role(params[:role])
+
+		redirect_to cities_path
 	end
 end

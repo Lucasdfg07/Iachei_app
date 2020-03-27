@@ -6,6 +6,10 @@
       <%= image_tag 'iachei.png', alt: 'iachei logo' %>
     </section>
 
+    <section class="field input-group mb-4">
+      <%= f.text_field :name, placeholder: 'Digite seu Nome', autocomplete: "name", class: 'form-control' %>
+    </section>
+
     <section class="field input-group mb-2">
       <%= f.email_field :email, autofocus: true, placeholder: 'Digite seu Email', autocomplete: "email", class: 'form-control' %>
     </section>

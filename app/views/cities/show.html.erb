@@ -18,7 +18,9 @@
 				<%= @city.description %>
 			</p>
 
-			<%= link_to 'Confirmar', cities_path, class: 'btn btn-primary' %>
+			<%= form_for @city, url: {action: :update} do |f| %>
+				<%= f.submit 'Confirmar', class: 'btn btn-primary' %>
+			<% end %>
 		</section>
 	</section>
 
