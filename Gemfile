@@ -7,8 +7,12 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'cancancan'
 
+# Admin system
+gem 'cancancan'
+gem 'rails_admin', '~> 2.0'
+
+# Bootstrap
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 

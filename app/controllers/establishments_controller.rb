@@ -23,7 +23,6 @@ class EstablishmentsController < ApplicationController
   def create
     @establishment = Establishment.new(establishment_params)
     
-    @establishment.city = current_user.city
     @establishment.user = current_user
 
     respond_to do |format|
@@ -67,6 +66,6 @@ class EstablishmentsController < ApplicationController
 
 
     def establishment_params
-      params.permit(:establishment).permit(:name, :description, :aditional_information, :telephone, :photo)
+      params.require(:establishment).permit(:category_id, :name, :description, :additional_information, :telephone, :photo)
     end
 end

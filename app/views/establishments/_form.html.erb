@@ -1,17 +1,42 @@
-<%= form_for(establishment) do |f| %>
+<%= form_for(establishment, class: 'form-group col-md-4 offset-md-4 text-center') do |f| %>
   <% if establishment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(establishment.errors.count, "error") %> prohibited this establishment from being saved:</h2>
 
       <ul>
-      <% establishment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% establishment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
+  <section class="field mb-4">
+    Categoria*:
+    <%= f.collection_select :category_id, Category.order(name: :ASC), :id, :name, {include_blank: 'Selecione uma Categoria'}, class: 'form-control', required: true %>
+  </section>
+
+  <section class="field mb-4">
+    Nome*:
+    <%= f.text_field :name, placeholder: 'Digite o nome', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field mb-4">
+    Descrição*:
+    <%= f.text_field :description, placeholder: 'Digite o descrição', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field mb-4">
+    Informações Adicionais*:
+    <%= f.text_field :additional_information, placeholder: 'Digite as informações', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field mb-4">
+    Telefone
+    <%= f.text_field :telephone, placeholder: 'Digite o telefone', class: 'form-control' %>
+  </section>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Criar', class: 'btn btn-success' %>
   </div>
 <% end %>

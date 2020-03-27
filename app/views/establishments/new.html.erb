@@ -1,5 +1,13 @@
-<h1>New Establishment</h1>
+<section class="content col-md-6 offset-md-3">
+	<h1>Criar estabelecimento</h1>
+	
+	<p>
+		Cidade: <b><%= current_user.city.name %></b>
+	</p>
+	
+	<%= render 'form', establishment: @establishment %>
 
-<%= render 'form', establishment: @establishment %>
+	<br />
 
-<%= link_to 'Back', establishments_path %>
+	<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning' %>
+</section>
