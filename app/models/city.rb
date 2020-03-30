@@ -1,5 +1,6 @@
 class City < ApplicationRecord
-	has_many :establishments, through: :establishment_city, dependent: :destroy
+	has_many :establishment_cities
+	has_many :establishments, through: :establishment_cities, dependent: :destroy
 
 	validates_presence_of :name, :description
 

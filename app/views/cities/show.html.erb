@@ -1,29 +1,28 @@
-<section class="content col-md-6 offset-md-3">
-
-	<section class="city_show">
-		<section class="perfil">
-			<%= image_tag (@city.photo) if @city.photo.present? %>
-		</section>
-
-		<%= link_to cities_path, class: 'float-left back_button' do %>
-			<%= image_tag 'go_back.png', alt: 'back image' %>
-		<% end %>
-
-		<section class="description mt-4">
-			<h4><%= @city.name %></h4>
-
-			<hr />
-
-			<p>
-				<%= @city.description %>
-			</p>
-
-			<%= form_for @city, url: {action: :update} do |f| %>
-				<%= f.submit 'Confirmar', class: 'btn btn-primary' %>
-			<% end %>
-
-			<%= link_to 'Editar', edit_city_path(@city), class: 'btn btn-info mt-4' if current_user.admin? %>
-		</section>
+<section class="city_show">
+	<section class="perfil">
+		<%= image_tag (@city.photo) if @city.photo.present? %>
 	</section>
 
+	<%= link_to cities_path, class: 'float-left back_button' do %>
+		<%= image_tag 'go_back.png', alt: 'back image' %>
+	<% end %>
+
+	<section class="description mt-4">
+		<h4><%= @city.name %></h4>
+
+		<hr />
+
+		<p>
+			<%= @city.description %>
+		</p>
+
+		<% if !current_user.admin? %>
+			<%= form_for @city, url: {action: :update_user_city} do |f| %>
+				<%= hidden_field_tag :id, @city.id %>
+				<%= f.submit 'Confirmar', class: 'btn btn-primary' %>
+			<% end %>
+		<% end %>
+
+		<%= link_to 'Editar', edit_city_path(@city), class: 'btn btn-info mt-4' if current_user.admin? %>
+	</section>
 </section>

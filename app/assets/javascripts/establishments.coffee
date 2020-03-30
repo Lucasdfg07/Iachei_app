@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on 'turbolinks:load', ->
+	$('.establishment_icons_background').hide()
+
+	$('.items').on 'click', ->
+		$('.establishment_icons_background').show(500)
+
+	$('.close').on 'click', ->
+		$('.establishment_icons_background').hide(500)

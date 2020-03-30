@@ -28,4 +28,6 @@ $( document ).on('turbolinks:load', function() {
       $('.alert').slideUp(500);
     }, 2500);
   });
+
+  $('.tag-tooltip').tooltip();
 });

@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  before_action :set_city, only: [:show, :edit, :update, :destroy]
+  before_action :set_city, only: [:update_user_city, :show, :edit, :update, :destroy]
 
 
   def index
@@ -35,16 +35,17 @@ class CitiesController < ApplicationController
     end
   end
 
+  def update_user_city
+    # Only Client or Shopkeeper
+    current_user.set_city(@city)
+
+    redirect_to establishments_path, notice: 'Cidade Selecionada com sucesso!'
+  end
 
   def update
-    current_user.update(city: @city)
-
+    # Only Admin
     if @city.update(city_params)
-      redirect_to establishments_path, notice: 'Cidade Selecionada com sucesso!' if current_user.client?
-
-      redirect_to new_establishment_path, notice: 'Cidade Selecionada com sucesso!' if current_user.shopkeeper?
-
-      redirect_to cities_path, notice: 'Cidade editada com sucesso!' if current_user.admin?
+      redirect_to cities_path, notice: 'Cidade editada com sucesso!'
     end
   end
 

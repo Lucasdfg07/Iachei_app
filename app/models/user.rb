@@ -21,4 +21,8 @@ class User < ApplicationRecord
   	def set_role(role)
   		self.update(role: role)
   	end
+
+  	def set_city(city)
+  		self.update(city_id: city.id)
+  	end
 end

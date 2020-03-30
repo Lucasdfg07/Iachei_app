@@ -1,0 +1,9 @@
+<section class="establishment_content mt-4">
+	<h4><%= @category.name %></h4>
+
+	<hr>
+
+	<%= render 'list_establishments' %>
+
+	<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning mt-4' %>
+</section>

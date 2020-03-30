@@ -1,9 +1,11 @@
 class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_category, only: [:category]
 
   def index
-    @establishments = Establishment.all
+    @establishments = current_user.city.establishments
+
+    @categories = Category.all
   end
 
 
@@ -19,11 +21,16 @@ class EstablishmentsController < ApplicationController
   def edit
   end
 
+  def category
+    @establishments = current_user.city.establishments.where(category: @category)
+  end
+
 
   def create
     @establishment = Establishment.new(establishment_params)
-    
     @establishment.user = current_user
+
+    set_establishment_city(@establishment)
 
     respond_to do |format|
       if @establishment.save
@@ -34,6 +41,14 @@ class EstablishmentsController < ApplicationController
         format.json { render json: @establishment.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  
+  def set_establishment_city(establishment)
+    # Create Association
+    @establishment_city = EstablishmentCity.new
+    @establishment_city.set_new_establishment(current_user.city, establishment)
+    @establishment_city.save
   end
 
 
@@ -59,6 +74,10 @@ class EstablishmentsController < ApplicationController
   end
 
   private
+
+    def set_category
+      @category = Category.find(params[:id])
+    end
 
     def set_establishment
       @establishment = Establishment.find(params[:id])

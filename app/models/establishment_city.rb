@@ -1,5 +1,4 @@
 class EstablishmentCity < ApplicationRecord
-	before_create :set_new_establishment
 	belongs_to :city
 	belongs_to :establishment
 
