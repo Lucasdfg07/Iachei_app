@@ -1,0 +1,41 @@
+<% if @establishments.count > 0 %>
+  <% @establishments.each do |establishment| %>
+      <%= link_to establishment_path(establishment) do %>
+        <section class="row establishments_div">
+          <section class="col-md-6">
+            <% if establishment.photo.present? %>
+              <%= image_tag establishment.photo.medium %>
+            <% else %>
+              -
+            <% end %>
+          </section>
+
+          <section class="col-md-5">
+            <h5><%= establishment.name %></h5>
+            <p>
+              <%= establishment.category.name %>
+            </p>  
+
+            <p>
+              <% if !establishment.rating.nil? %>
+                <% (1..establishment.rating).each do |i| %>
+                  *
+                <% end %>
+              <% else %>
+                Sem avaliações
+              <% end %>
+            </p> 
+          </section>
+
+          <section class="col-md-1">
+            <section class="format-triangle"></section>
+          </section>
+        </section>
+      <% end %>
+  <% end %>
+<% else %>
+  <p>
+    Não existem estabelecimentos cadastrados aqui ainda! <br>
+    <%= image_tag 'sad' %>
+  </p>
+<% end %>

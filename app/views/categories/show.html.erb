@@ -1,0 +1,15 @@
+<section class="show_div">
+	<p id="notice"><%= notice %></p>
+
+	<%  if @category.photo.present? %>
+		<p>
+			<%= image_tag @category.photo %>
+		</p>
+	<% end %>
+
+	<p>
+		<b><%= @category.name %></b>
+	</p>
+
+	<%= link_to 'Voltar', categories_path, class: 'btn btn-warning' %>
+</section>

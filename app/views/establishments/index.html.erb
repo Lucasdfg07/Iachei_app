@@ -1,0 +1,33 @@
+<section class="establishment_content">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <b>Cidade:</b> <%= current_user.city.name %>
+  </p>
+
+  <h4>Escolha uma categoria</h4>
+
+  <hr>
+
+  <section class="row">
+    <% @categories.each do |category| %>
+      <section class="col-4 image_category">
+        <%= link_to category_establishments_path(id: category) do %>
+          <%= image_tag category.photo %>
+        <% end %>
+      </section>
+    <% end %>
+  </section>
+
+  <hr>
+
+  <h5>Ou Selecione um estabelecimento</h5>
+
+  <hr>
+
+  <%= render 'list_establishments' %>
+
+  <br>
+
+  <%= link_to 'Cadastrar novo estabelecimento', new_establishment_path, class: 'btn btn-primary' if current_user.shopkeeper? %>
+</section>

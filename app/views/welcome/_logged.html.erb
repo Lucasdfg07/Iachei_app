@@ -1,0 +1,11 @@
+<h3>Escolha uma das opções abaixo</h3>
+
+	<section class="row buttons_role">
+		<section class="col-6 form-group">
+			<%= link_to 'Sou Cliente', welcome_set_user_role_path(role: 'client'), class: 'btn btn-success form-control' %>
+		</section>
+
+		<section class="col-6 form-group">
+			<%= link_to 'Sou Lojista', welcome_set_user_role_path(role: 'shopkeeper'), class: 'btn btn-info form-control' %>
+		</section>
+	</section>	

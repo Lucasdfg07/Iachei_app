@@ -7,10 +7,29 @@ end
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'cancancan'
 
+# Admin system
+gem 'cancancan'
+gem 'rails_admin', '~> 2.0'
+
+# Bootstrap
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+
+# Authentication
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+# Uploaders
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick', '~> 4.3'
+
+# Search in forms
+gem 'ransack'
+
+# Paginate
+gem 'will_paginate', '~> 3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'

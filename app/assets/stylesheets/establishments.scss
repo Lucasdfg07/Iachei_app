@@ -1,0 +1,103 @@
+.establishment_content {
+	.image_category {
+
+		img {
+			width: 100%;
+			border-radius: 10px;
+		}
+	}
+
+	.establishments_div {
+		width: 100%;
+		margin-top: 5px;
+		padding: 10px;
+		color: black;
+		background-color: rgb(245,245,245);
+		border-bottom: 1px solid rgba(180,180,180,0.6);
+	}
+
+	.establishments_div:hover {
+		background-color: rgba(180,180,180,0.8);
+
+		.format-triangle {
+			background-color: rgba(180,180,180,0.8);
+		}
+	}	
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	.format-triangle {
+		background-color: rgb(245,245,245);
+		width: 40px;
+		height: 40px;
+		transform: rotate(45deg);
+		margin-top:20px;
+		margin-left:13px;
+	}
+}
+
+.establishment_photo {
+	img {
+		width: 100%;
+	}
+}
+
+.about_establishment {
+	.items {
+		img {
+			background-color: rgba(245,245,245,0.8);
+			border-radius: 100%;
+			width: 50%;
+		}
+	}
+
+	.establishment_photo {
+		img {
+			width: 100%;
+		}
+	}
+
+	.establishment_icons_background {
+		position: absolute;
+		margin-top: -200px;
+		background-color: rgba(10,10,10,0.8);
+		color: white;
+		width: 92.5%;
+		padding: 20px;
+		border-radius: 20px;
+		box-shadow: 0px 0px 25px rgba(245,245,245,0.9);
+
+		.close {
+			position: absolute;
+
+			img {
+				width: 40px;
+			}
+		}
+
+		.establishment_icons_information {
+			img {	
+				width: 50px;
+			}
+
+			.telephone, .rating {
+				border-bottom: 1px solid rgba(245,245,245,0.7);
+				padding-bottom: 10px;
+			}
+
+			.rating {
+				img {
+					width: 30px;
+				}
+			}
+		}
+	}
+
+	.description {
+		background-color: rgba(245,245,245,0.9);
+		box-shadow: -2px 2px 10px rgba(245,245,245,0.7);
+		padding: 15px;
+	}
+}

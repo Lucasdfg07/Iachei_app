@@ -1,0 +1,38 @@
+
+<h3>Informe sua Cidade</h3>
+
+<%= search_form_for @q, class: 'form-group text-center mt-3' do |f| %>
+  <%= f.collection_select :id_eq, City.order(name: :ASC), :id, :name, {include_blank: 'Pesquise sua Cidade'}, {class: 'form-control mb-2'} %>
+
+  <%= f.submit 'Procurar', class: 'form-control' %>
+<% end %>
+
+<section class="city">
+  <% @cities.each do |city| %>
+    <%= link_to city_path(city) do %>
+      <section class="city_section mb-4">
+        <section class="row">
+          <section class="col-md-4">
+            <%= image_tag(city.photo.medium) if city.photo.present? %>
+          </section>
+
+          <section class="col-md-8">
+            <h5><%= city.name %></h5>
+
+            <p>
+              <%= truncate(city.description, :length => 20, separator: ' ') %>
+            </p>
+          </section>
+        </section>
+      </section>
+    <% end %>
+  <% end %>
+</section>
+
+<% if current_user.admin? %>
+  <%= link_to 'Cadastrar nova cidade', new_city_path, class: 'btn btn-primary mt-2' %>
+
+  <br>
+
+  <%= link_to 'Voltar', superuser_welcome_index_path, class: 'btn btn-warning mt-2' %>
+<% end %>

@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//
+// Bootstrap
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+// 
+// 
 //= require_tree .
+
+$( document ).on('turbolinks:load', function() {
+  $(function() {
+    setTimeout(function(){
+      $('.alert').slideUp(500);
+    }, 2500);
+  });
+
+  $('.tag-tooltip').tooltip();
+});

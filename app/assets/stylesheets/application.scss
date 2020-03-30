@@ -1,0 +1,28 @@
+@import "bootstrap";
+
+@import "welcome";
+@import "devise";
+@import "cities";
+@import "categories";
+@import "establishments";
+
+body {
+	background-image: url('/assets/city.jpg');
+	background-size: cover;
+
+	.container {
+		margin-top: 8%;
+		position: relative;
+		z-index: 20;
+	}
+
+	.alert {
+	  position: fixed;
+	  left: 0;
+	  bottom: 0;
+	  width: 100%;
+	  text-align: center;
+	  z-index: 9999;
+	  opacity: 0.7;
+	}
+}

@@ -1,0 +1,16 @@
+
+Bem vindo(a) <%= current_user.name %>
+
+<b>Perfil Administrativo</b>
+
+<hr />
+
+<section class="row mt-4 text-center">
+	<section class="col-6">
+		<%= link_to 'Cidades', cities_path, class: 'btn btn-success' %>
+	</section>
+
+	<section class="col-6">
+		<%= link_to 'Categorias', categories_path, class: 'btn btn-warning' %>
+	</section>
+</section>

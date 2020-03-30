@@ -1,0 +1,107 @@
+<p id="notice"><%= notice %></p>
+
+<section class="establishment_photo">
+	<% if @establishment.photo.present? %>
+		<%= image_tag @establishment.photo %>
+	<% else %>
+		<%= image_tag 'no-photo' %>
+	<% end %>
+</section>
+
+<section class="about_establishment mt-3">
+	<h4><%= @establishment.name %></h4>
+
+	<hr>
+
+	<section class="items">
+		<section class="row">
+			<section class="col-3">
+				<%= image_tag 'call' %>
+			</section>
+
+			<section class="col-3">
+				<%= image_tag 'place' %>
+			</section>
+
+			<section class="col-3">
+				<%= image_tag 'star' %>
+			</section>
+
+			<section class="col-3">
+				<%= image_tag 'world' %>
+			</section>
+		</section>
+	</section>
+
+	<section class="establishment_icons_background">
+		<section class="close offset-10">
+			<%= image_tag 'close_tab' %>
+		</section>
+
+		<section class="establishment_icons_information">
+			<section class="telephone mt-3">
+				<h4>Telefone:</h4>
+
+				<%= @establishment.telephone %>
+			</section>
+
+			<section class="rating mt-3">
+				<h4>Avaliações:</h4>
+
+				<% if @establishment.rating.present? %>
+					<%= @establishment.rating %>
+				<% else %>
+					Não há avaliações ainda. <%= image_tag 'sad' %>
+				<% end %>
+			</section>
+
+			<section class="social mt-3">
+				<h4>Redes Sociais:</h4>
+				<br>
+				<section class="row">
+					<section class="col-3">
+						<a href="#" title="Facebook"><%= image_tag 'facebook' %></a>
+					</section>
+
+					<section class="col-3">
+						<a href="#" title="Instagram"><%= image_tag 'instagram-sketched' %></a>
+					</section>
+
+					<section class="col-3">
+						<a href="#" title="Whatsapp"><%= image_tag 'whatsapp' %></a>
+					</section>
+
+					<section class="col-3">
+						<a href="#" title="Site Pessoal"><%= image_tag 'internet' %></a>
+					</section>
+				</section>
+			</section>	
+		</section>
+	</section>
+
+	<br><br>
+
+	<section class="about">
+		<h5>Um pouco sobre a gente</h5>
+
+		<hr>
+
+		<section class="description">
+			<%= @establishment.description %>
+		</section>
+	</section>
+
+	<br>
+
+	<section class="additional_information mt-4">
+		<h5>Informações Adicionais <%= image_tag 'menu' %></h5>
+
+		<hr>
+
+		<section class="description">
+			<%= @establishment.additional_information %>
+		</section>
+	</section>
+</section>
+
+<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning mt-4' %>

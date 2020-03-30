@@ -1,0 +1,32 @@
+<%= form_for(city) do |f| %>
+  <% if city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
+
+      <ul>
+      <% city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="field">
+    Nome:
+    <%= f.text_field :name, placeholder: 'Digite o nome da cidade', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field">
+    Descrição:
+    <%= f.text_area :description, placeholder: 'Digite a descrição', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    Foto da Cidade: <br>
+    <%= f.file_field :photo %>
+  </section>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

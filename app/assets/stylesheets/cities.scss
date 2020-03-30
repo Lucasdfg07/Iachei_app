@@ -1,0 +1,37 @@
+.city {
+	overflow-y: auto;
+	height: 400px;
+
+	.city_section {
+		padding: 10px;
+		background-color: rgba(245,245,245,0.7);
+		border-radius: 20px;
+	}
+
+	a {
+		color: black;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: blue;
+	}
+}
+
+.city_show {
+	.perfil {
+		img {
+			width: 100%;
+		}	
+	}
+
+	.back_button {
+		img {
+			width: 10%;
+			margin-top: -30px;
+			margin-left: 30px;
+			position: absolute;
+			z-index: 40;
+		}
+	}
+}

@@ -1,0 +1,12 @@
+
+<h1>Criar estabelecimento</h1>
+
+<p>
+	Cidade: <b><%= current_user.city.name %></b>
+</p>
+
+<%= render 'form', establishment: @establishment %>
+
+<br />
+
+<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning' %>

@@ -1,0 +1,33 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Categorias</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Nome</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><% if category.photo.present? %><%= image_tag category.photo.thumb %><% end %></td>
+        <td><b><%= category.name %></b></td>
+        <td><%= link_to 'Exibir', category, class: 'btn btn-dark' %></td>
+        <td><%= link_to 'Editar', edit_category_path(category), class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Cadastrar nova categoria', new_category_path, class: 'btn btn-primary' %>
+
+<br>
+
+<%= link_to 'Voltar', superuser_welcome_index_path, class: 'btn btn-warning mt-3' %>

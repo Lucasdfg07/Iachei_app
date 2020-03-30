@@ -1,0 +1,28 @@
+<section class="auth_buttons">
+	<%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn' do %>
+		<%= image_tag 'facebook_icon.png' %> Sign In With Facebook
+	<% end %>
+
+	<br /><br /><br />
+
+
+	<%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn' do %>
+		<%= image_tag 'google.png' %> Sign In With Google
+	<% end %>
+</section>
+
+<footer class="fixed-bottom">
+	<section class="row">
+		<setion class="col-6">
+			<section class="float-right">
+				<%= link_to 'Login', new_user_session_path %>
+			</section>
+		</setion>
+
+		<section class="col-6">
+			<section class="float-left">
+				<%= link_to 'Cadastre-se', new_user_registration_path %>
+			</section>
+		</section>
+	</section>
+</footer>
