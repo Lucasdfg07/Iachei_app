@@ -1,6 +1,7 @@
-<h1>Editing City</h1>
+<section class="content col-md-6 offset-md-3">
+	<h1>Editar Cidade</h1>
 
-<%= render 'form', city: @city %>
+	<%= render 'form', city: @city %>
 
-<%= link_to 'Show', @city %> |
-<%= link_to 'Back', cities_path %>
+	<%= link_to 'Voltar', city_path(@city), class: 'btn btn-warning mt-3' %>
+</section>

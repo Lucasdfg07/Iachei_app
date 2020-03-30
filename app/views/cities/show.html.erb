@@ -21,6 +21,8 @@
 			<%= form_for @city, url: {action: :update} do |f| %>
 				<%= f.submit 'Confirmar', class: 'btn btn-primary' %>
 			<% end %>
+
+			<%= link_to 'Editar', edit_city_path(@city), class: 'btn btn-info mt-4' if current_user.admin? %>
 		</section>
 	</section>
 

@@ -43,6 +43,8 @@ class CitiesController < ApplicationController
       redirect_to establishments_path, notice: 'Cidade Selecionada com sucesso!' if current_user.client?
 
       redirect_to new_establishment_path, notice: 'Cidade Selecionada com sucesso!' if current_user.shopkeeper?
+
+      redirect_to cities_path, notice: 'Cidade editada com sucesso!' if current_user.admin?
     end
   end
 
@@ -63,6 +65,6 @@ class CitiesController < ApplicationController
 
 
     def city_params
-      params.fetch(:city, {})
+      params.require(:city).permit(:name, :description, :photo)
     end
 end

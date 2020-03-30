@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	
 	has_many :establishments, dependent: :destroy
 
-	enum role: [:client, :shopkeeper]
+	enum role: [:client, :shopkeeper, :admin]
 
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

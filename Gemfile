@@ -21,6 +21,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+# Uploaders
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick', '~> 4.3'
+
 # Search in forms
 gem 'ransack'
 

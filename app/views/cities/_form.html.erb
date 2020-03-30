@@ -11,7 +11,22 @@
     </div>
   <% end %>
 
+  <section class="field">
+    Nome:
+    <%= f.text_field :name, placeholder: 'Digite o nome da cidade', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field">
+    Descrição:
+    <%= f.text_area :description, placeholder: 'Digite a descrição', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    Foto da Cidade: <br>
+    <%= f.file_field :photo %>
+  </section>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :establishments
@@ -9,5 +10,11 @@ Rails.application.routes.draw do
 
   get 'welcome/set_user_role'
   
+
+  namespace :superuser do
+  	get 'welcome/index'
+  end
+
+
   root "welcome#index"
 end

@@ -1,0 +1,29 @@
+<%= form_for(category) do |f| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section class="field m-3">
+    Nome: <br>
+    <%= f.text_field :name, placeholder: 'Digite o nome da categoria', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    Foto da categoria: <br>
+    <%= f.file_field :photo %>
+  </section>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  </div>
+
+  <%= link_to 'Voltar', categories_path, class: 'btn btn-warning m-4' %>
+<% end %>

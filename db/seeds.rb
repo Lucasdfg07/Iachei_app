@@ -15,3 +15,5 @@ City.create([
 			{name: 'Distrito de Taki', description: 'lorem ipsum'},
 			{name: 'Madagascar', description: 'lorem ipsum'}
 			])
+
+User.create(name: 'admin', email: 'admin@admin.com', password: 'admin123', role: 2)
