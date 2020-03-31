@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'welcome/set_user_role'
   
+  resources :about
 
   namespace :superuser do
   	get 'welcome/index'

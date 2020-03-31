@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if current_user.shopkeeper? && current_user.is_establshment_present(@establishment)%>
+	<%= link_to 'Apagar Estabelecimento', @establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-left mb-2' %>
 	<section class="float-right mb-2">
 		<%= link_to 'Editar Estabelecimento', edit_establishment_path(@establishment), class: 'btn btn-info' %>
 	</section>
@@ -49,6 +50,33 @@
 				<h4>Telefone:</h4>
 
 				<%= @establishment.telephone %>
+			</section>
+
+			<section class="address mt-3">
+				<h4>Endereço:</h4>
+				<table class="table">
+					<% if @establishment.addresses.count > 0 %>
+						<% @establishment.addresses.each do |address| %>
+							<tr>
+								<td>Cidade: <%= address.establishment_city.city.name %></td>
+							</tr>
+							<tr>
+								<td>Rua: <%= address.street %></td>
+							</tr>
+							<tr>
+								<td>Bairro: <%= address.neighborhood %></td>
+							</tr>
+							<tr>
+								<td>Número: <%= address.number %></td>
+							</tr>
+							<tr>
+								<td>CEP: <%= address.cep %></td>
+							</tr>
+						<% end %>
+					<% else %>
+						Endereço indisponível.
+					<% end %>
+				</table>
 			</section>
 
 			<section class="rating mt-3">

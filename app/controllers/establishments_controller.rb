@@ -96,7 +96,7 @@ class EstablishmentsController < ApplicationController
   def destroy
     @establishment.destroy
     respond_to do |format|
-      format.html { redirect_to establishments_url, notice: 'Establishment was successfully destroyed.' }
+      format.html { redirect_to current_user_establishments_establishments_path, notice: 'Establishment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

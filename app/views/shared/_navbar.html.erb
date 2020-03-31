@@ -13,7 +13,7 @@
 		<ul class="col-md-12">
 			<li><%= link_to 'Página Inicial', establishments_path %></li>
 			<li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
-			<li><%= link_to 'Sobre nós', root_path %></li>
+			<li><%= link_to 'Sobre nós', about_index_path %></li>
 
 			<% if current_user.shopkeeper? %>
 				<li><%= link_to 'Meus Estabelecimentos', current_user_establishments_establishments_path %></li>
