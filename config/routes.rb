@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :establishments do
     collection do
       get 'category'
+      get 'current_user_establishments'
     end
   end
 
@@ -13,10 +14,11 @@ Rails.application.routes.draw do
   resources :cities
   patch 'update_user_city', to: 'cities#update_user_city'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
 
   get 'welcome/set_user_role'
   
+  resources :about
 
   namespace :superuser do
   	get 'welcome/index'

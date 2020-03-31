@@ -9,6 +9,10 @@ class CreateEstablishments < ActiveRecord::Migration[5.0]
     	t.integer :rating
     	t.string :telephone
     	t.string :photo
+      t.string :facebook
+      t.string :instagram
+      t.string :whatsapp
+      t.string :website
       t.timestamps
     end
   end

@@ -18,19 +18,16 @@
       <% if notice %>
         <p class="alert alert-success notice"><%= notice %></p>
       <% end %>
-    
+      
+      <%= render 'shared/navbar' if user_signed_in? %>
       <section class="container text-center">
           <% if user_signed_in? %>
             <section class="content col-md-6 offset-md-3">
-              <section class="float-right">
-                <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
-              </section>
-
       		    <%= yield %>
-            <% else %>
-              <%= yield %>
-            <% end %>
-          </section>
+            </section>
+          <% else %>
+            <%= yield %>
+          <% end %>
       </section>
   	</main>
   </body>

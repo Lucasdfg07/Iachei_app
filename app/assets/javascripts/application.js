@@ -29,5 +29,13 @@ $( document ).on('turbolinks:load', function() {
     }, 2500);
   });
 
-  $('.tag-tooltip').tooltip();
+  
+  // Navbar
+  $('.click_navbar .close').hide();
+  $('nav').hide();
+  $('.click_navbar').click(function() {
+  	$('nav').toggle(300);
+  	$('.click_navbar .close').toggle(200);
+  	$('.click_navbar .open').toggle(200);
+  });
 });

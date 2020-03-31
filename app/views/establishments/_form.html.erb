@@ -12,6 +12,11 @@
   <% end %>
 
   <section class="field mb-4">
+    Cidades que possuem o estabelecimento*:
+    <%= f.collection_select :cities, City.order(name: :ASC), :id, :name, {}, multiple: true, class: 'form-control', required: true %>
+  </section>
+
+  <section class="field mb-4">
     Categoria*:
     <%= f.collection_select :category_id, Category.order(name: :ASC), :id, :name, {include_blank: 'Selecione uma Categoria'}, class: 'form-control', required: true %>
   </section>

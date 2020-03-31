@@ -4,9 +4,9 @@
         <section class="row establishments_div">
           <section class="col-md-6">
             <% if establishment.photo.present? %>
-              <%= image_tag establishment.photo.medium %>
+              <%= image_tag establishment.photo %>
             <% else %>
-              -
+              <%= image_tag 'no-photo' %>
             <% end %>
           </section>
 

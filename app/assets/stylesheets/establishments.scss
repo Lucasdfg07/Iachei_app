@@ -14,6 +14,10 @@
 		color: black;
 		background-color: rgb(245,245,245);
 		border-bottom: 1px solid rgba(180,180,180,0.6);
+
+		img {
+			width: 150px;
+		}
 	}
 
 	.establishments_div:hover {
@@ -80,6 +84,12 @@
 		.establishment_icons_information {
 			img {	
 				width: 50px;
+			}
+
+			.address {
+				table {
+					color: white;
+				}
 			}
 
 			.telephone, .rating {
