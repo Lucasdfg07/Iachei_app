@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :establishments do
     collection do
       get 'category'
+      get 'current_user_establishments'
     end
   end
 

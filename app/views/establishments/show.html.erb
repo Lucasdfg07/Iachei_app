@@ -102,6 +102,18 @@
 			<%= @establishment.additional_information %>
 		</section>
 	</section>
+
+	<% if current_user.shopkeeper? && current_user.is_establshment_present(@establishment)%>
+		<section class="cities mt-4">
+			<h5>Cidades Atuantes</h5>
+
+			<section class="description">
+				<% @establishment.cities.each do |city| %>
+					<%= city.name %> <br>
+				<% end %>
+			</section>
+		</section>
+	<% end %>
 </section>
 
 <%= link_to 'Voltar', establishments_path, class: 'btn btn-warning mt-4' %>

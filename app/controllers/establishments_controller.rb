@@ -25,6 +25,10 @@ class EstablishmentsController < ApplicationController
     @establishments = current_user.city.establishments.where(category: @category)
   end
 
+  def current_user_establishments
+    @establishments = current_user.establishments
+  end 
+
 
   def create
     @establishment = Establishment.new(establishment_params)
@@ -46,9 +50,16 @@ class EstablishmentsController < ApplicationController
   
   def set_establishment_city(establishment)
     # Create Association
-    @establishment_city = EstablishmentCity.new
-    @establishment_city.set_new_establishment(current_user.city, establishment)
-    @establishment_city.save
+    @cities = params[:establishment][:cities]
+    
+    # First position is blank
+    @cities.drop(1).each do |city|
+      @city = City.find(city)
+
+      @establishment_city = EstablishmentCity.new
+      @establishment_city.set_new_establishment(@city, establishment)
+      @establishment_city.save
+    end
   end
 
 

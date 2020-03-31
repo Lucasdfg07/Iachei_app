@@ -6,6 +6,8 @@
 @import "categories";
 @import "establishments";
 
+@import "shared/navbar";
+
 body {
 	background-image: url('/assets/city.jpg');
 	background-size: cover;

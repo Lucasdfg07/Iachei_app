@@ -1,0 +1,44 @@
+.click_navbar {
+	background-color: rgba(245,245,245,0.9);
+	padding: 0px 20px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	position: fixed;
+	right:0;
+}
+
+nav {
+	background-color: rgba(245,245,245,0.9);
+	width: 250px;
+	margin-top: 50px;
+	height: 100%;
+	border-top-right-radius: 20px;
+
+	.elements {
+		padding: 20px 0px;
+
+		img {
+			width: 100px;
+			border-radius: 100%;
+		}
+
+		ul { 
+			li {
+				display: block;
+				margin: 20px 0px;
+				padding: 10px 0px;
+				border-bottom: 1px solid rgba(180,180,180,0.6);
+
+				a {
+					color: black;
+				}
+
+				a:hover {
+					color: red;
+					font-weight: bold;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

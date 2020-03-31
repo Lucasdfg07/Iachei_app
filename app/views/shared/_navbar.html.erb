@@ -1,0 +1,26 @@
+<section class="click_navbar float-right">
+	<%= image_tag 'menu_nav', class: 'open' %>
+
+	<%= image_tag 'close', class: 'close' %>
+</section>
+
+<nav class="fixed-top text-center">
+	<section class="elements col-md-12">
+		<section class="brand">
+			<%= image_tag 'iachei' %>
+		</section>
+
+		<ul class="col-md-12">
+			<li><%= link_to 'Página Inicial', establishments_path %></li>
+			<li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
+			<li><%= link_to 'Sobre nós', root_path %></li>
+
+			<% if current_user.shopkeeper? %>
+				<li><%= link_to 'Meus Estabelecimentos', current_user_establishments_establishments_path %></li>
+				<li><%= link_to 'Cadastrar estabelecimento', new_establishment_path %></li>
+			<% end %>
+
+			<li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+		</ul>
+	</section>
+</nav>
