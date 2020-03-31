@@ -29,8 +29,8 @@ $( document ).on('turbolinks:load', function() {
     }, 2500);
   });
 
-  $('.tag-tooltip').tooltip();
-
+  
+  // Navbar
   $('.click_navbar .close').hide();
   $('nav').hide();
   $('.click_navbar').click(function() {

@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.shopkeeper? && current_user.is_establshment_present(@establishment)%>
+	<section class="float-right mb-2">
+		<%= link_to 'Editar Estabelecimento', edit_establishment_path(@establishment), class: 'btn btn-info' %>
+	</section>
+<% end %>
+
 <section class="establishment_photo">
 	<% if @establishment.photo.present? %>
 		<%= image_tag @establishment.photo %>
@@ -113,7 +119,36 @@
 				<% end %>
 			</section>
 		</section>
+
+		<section class="addresses mt-4">
+			<h5>Endereços</h5>
+
+			<section class="description">
+				<% if @establishment.addresses.count > 0 %>
+					<table class="table table-hover">
+						<% @establishment.addresses.each do |address| %>
+							<tr>
+								<td><%= address.establishment_city.city.name %></td>
+								<td><%= address.street %></td>
+								<td><%= address.neighborhood %></td>
+								<td><%= address.number %></td>
+								<td><%= address.cep %></td>
+								<td><%= link_to 'Editar', edit_address_path(address, establishment: @establishment) %></td>
+								<td><%= link_to 'Apagar', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+							</tr>
+						<% end %>
+					</table>
+
+					<hr>
+
+					<%= link_to 'Cadastrar Endereço', new_address_path(establishment: @establishment), class: 'btn btn-info' %>
+				<% else %>	
+					Não existem endereços cadastrados <hr>
+					<%= link_to 'Cadastrar Endereço', new_address_path(establishment: @establishment), class: 'btn btn-info' %>
+				<% end %>
+			</section>
+		</section>
 	<% end %>
 </section>
 
-<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning mt-4' %>
+<%= link_to 'Voltar', (current_user.client?) ? establishments_path : current_user_establishments_establishments_path, class: 'btn btn-warning mt-4'  %>

@@ -11,7 +11,38 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <%= hidden_field_tag :establishment, @establishment.id %>
+
+  <h5>Estabelecimento: <%= @establishment.name %></h5>
+
+  <section class="field m-3">
+    Cidade:
+    <%= f.collection_select :establishment_city, @establishment.cities, :id, :name, {}, class: 'form-control' %>
+  </section>
+
+  <section class="field m-3">
+    Rua*
+    <%= f.text_field :street, placeholder: 'Digite a rua', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    Bairro*
+    <%= f.text_field :neighborhood, placeholder: 'Digite o bairro', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    Número*
+    <%= f.text_field :number, placeholder: 'Digite o número', class: 'form-control', required: true %>
+  </section>
+
+  <section class="field m-3">
+    CEP
+    <%= f.text_field :cep, placeholder: 'Digite o CEP', class: 'form-control' %>
+  </section>
+
+  <div class="actions m-3">
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
   </div>
+
+  <%= link_to 'Voltar', establishment_path(@establishment), class: 'btn btn-warning' %>
 <% end %>
