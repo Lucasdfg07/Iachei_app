@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :cities
   patch 'update_user_city', to: 'cities#update_user_city'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
 
   get 'welcome/set_user_role'
   
