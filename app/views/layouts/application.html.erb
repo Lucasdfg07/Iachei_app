@@ -22,7 +22,10 @@
         <p class="alert alert-success notice"><%= notice %></p>
       <% end %>
       
-      <%= render 'shared/navbar' if user_signed_in? %>
+      <% if user_signed_in? %>
+        <%= render 'shared/navbar' if current_user.city.present? %>
+      <% end %>
+      
       <section class="container text-center">
           <% if user_signed_in? %>
             <section class="content col-md-6 offset-md-3">

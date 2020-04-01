@@ -174,19 +174,17 @@
 
 			<section class="description">
 				<% if @establishment.addresses.count > 0 %>
-					<table class="table table-hover">
-						<% @establishment.addresses.each do |address| %>
-							<tr>
-								<td><%= address.establishment_city.city.name %></td>
-								<td><%= address.street %></td>
-								<td><%= address.neighborhood %></td>
-								<td><%= address.number %></td>
-								<td><%= address.cep %></td>
-								<td><%= link_to 'Editar', edit_address_path(address, establishment: @establishment) %></td>
-								<td><%= link_to 'Apagar', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-							</tr>
-						<% end %>
-					</table>
+					<section class="table_mobile">
+						<table class="table table-hover">
+							<% @establishment.addresses.each do |address| %>
+								<tr>
+									<td colspan="5"><%= address.establishment_city.city.name %></td>
+									<td><%= link_to 'Editar', edit_address_path(address, establishment: @establishment) %></td>
+									<td><%= link_to 'Apagar', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								</tr>
+							<% end %>
+						</table>
+					</section>
 
 					<hr>
 
