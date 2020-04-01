@@ -60,7 +60,11 @@ Here are the technologies used in this project.
 
 ![CD Sketch](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV1.vpd.png)
 
+### Second try
+
 ![CD V1](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV2.vpd.png)
+
+### Getting better...
 
 ![CD V2](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV3.vpd.png)
 
