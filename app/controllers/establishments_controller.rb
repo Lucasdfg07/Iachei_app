@@ -128,6 +128,6 @@ class EstablishmentsController < ApplicationController
 
 
     def establishment_params
-      params.require(:establishment).permit(:category_id, :name, :description, :additional_information, :rating, :telephone, :photo)
+      params.require(:establishment).permit(:category_id, :name, :description, :additional_information, :rating, :telephone, :facebook, :instagram, :whatsapp, :website, :photo)
     end
 end

@@ -71,6 +71,8 @@
 								<td><b>Número:</b> <br> <%= address.number %></td>
 								<td><b>CEP:</b> <br> <%= address.cep %></td>
 							</tr>
+
+							<tr><td colspan="3"></tr>
 						<% end %>
 					<% else %>
 						Endereço indisponível.
@@ -105,19 +107,27 @@
 				<br>
 				<section class="row">
 					<section class="col-3">
-						<a href="#" title="Facebook"><%= image_tag 'facebook' %></a>
+						<%= link_to @establishment.facebook do %>
+							<%= image_tag 'facebook' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Instagram"><%= image_tag 'instagram-sketched' %></a>
+						<%= link_to @establishment.instagram do %>
+							<%= image_tag 'instagram-sketched' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Whatsapp"><%= image_tag 'whatsapp' %></a>
+						<%= link_to @establishment.whatsapp do %>
+							<%= image_tag 'whatsapp' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Site Pessoal"><%= image_tag 'internet' %></a>
+						<%= link_to @establishment.website do %>
+							<%= image_tag 'internet' %>
+						<% end %>
 					</section>
 				</section>
 			</section>	
