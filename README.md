@@ -54,6 +54,16 @@ Here are the technologies used in this project.
 * To run the project:
 >    $ sudo docker-compose up
 
+## Evolution of class Diagram
+
+### First sketch
+
+![CD Sketch](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV1.vpd.png)
+
+![CD V1](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV2.vpd.png)
+
+![CD V2](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/iacheiAPPV3.vpd.png)
+
 
 ## How to use
 
