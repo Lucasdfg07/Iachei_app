@@ -123,7 +123,7 @@ Here are the technologies used in this project.
 
 ### You can register new cities:
 
-![Admin Cities](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_cities.png)
+![Admin Cities](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_city.png)
 
 
 ### Or Edit Some city
