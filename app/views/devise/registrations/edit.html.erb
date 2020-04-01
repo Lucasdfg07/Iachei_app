@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <section class="field">
-    Cidades:
+    Cidade:
     <%= f.collection_select :city_id, City.order(name: :ASC), :id, :name, {}, class: 'form-control' %>
   </section>
 
@@ -39,5 +39,3 @@
     <%= f.submit t('.update'), class: 'btn btn-primary' %>
   </div>
 <% end %>
-
-<%= link_to 'Voltar', :back, class: 'btn btn-warning' %>

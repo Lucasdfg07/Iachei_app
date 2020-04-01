@@ -5,6 +5,18 @@
     <b>Cidade:</b> <%= current_user.city.name %>
   </p>
 
+  <%= search_form_for @q do |f| %>
+    <%= f.collection_select :name_eq, current_user.city.establishments, :id, :name, {include_blank: 'Pesquise por um estabelecimento'}, class: 'form-control' %>
+  <% end %>
+
+  <script>
+      $( "#q_name_eq" ).select2({
+          placeholder: 'Pesquise por um estabelecimento'
+      });
+  </script>
+
+  <br>
+
   <h4>Escolha uma categoria</h4>
 
   <hr>
@@ -17,6 +29,10 @@
         <% end %>
       </section>
     <% end %>
+  </section>
+
+  <section class="paginate_div text-center mt-3">
+    <%= paginate @categories %>
   </section>
 
   <hr>

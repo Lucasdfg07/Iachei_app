@@ -19,7 +19,8 @@
 //= require popper
 //= require bootstrap-sprockets
 // 
-// 
+// Select2
+//= require select2
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {

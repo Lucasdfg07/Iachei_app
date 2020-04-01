@@ -21,6 +21,10 @@
     <%= f.collection_select :category_id, Category.order(name: :ASC), :id, :name, {include_blank: 'Selecione uma Categoria'}, class: 'form-control', required: true %>
   </section>
 
+  <script>
+      $( "#establishment_category_id, #establishment_cities" ).select2();
+  </script>
+
   <section class="field mb-4">
     Nome*:
     <%= f.text_field :name, placeholder: 'Digite o nome', class: 'form-control', required: true %>

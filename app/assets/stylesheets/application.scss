@@ -7,6 +7,8 @@
 @import "establishments";
 @import "about";
 
+@import "select2";
+
 @import "shared/navbar";
 
 body {
@@ -27,5 +29,30 @@ body {
 	  text-align: center;
 	  z-index: 9999;
 	  opacity: 0.7;
+	}
+
+	.select2, .select2-q_name_eq-container, .select2-selection__placeholder {
+		background-color: white;
+		border-radius: 10px;
+		width: 100%;
+	}
+
+	.pagination {
+		tbody {
+			width: 100%;
+			tr {
+				td {
+					.active {
+						background-color: rgba(200,10,10,0.5);
+					}
+
+					li {
+						border-radius: 100%;
+						width: 25px;
+						border: 1px solid rgba(180,180,180,0.8);
+					}
+				}
+			}
+		}
 	}
 }

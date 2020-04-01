@@ -3,9 +3,11 @@ class EstablishmentsController < ApplicationController
   before_action :set_category, only: [:category]
 
   def index
-    @establishments = current_user.city.establishments
+    @q = current_user.city.establishments
+         .order(name: :ASC).ransack(params[:q])
+    @establishments = @q.result(distinct: true)
 
-    @categories = Category.all
+    @categories = Category.all.page(params[:page])
   end
 
 

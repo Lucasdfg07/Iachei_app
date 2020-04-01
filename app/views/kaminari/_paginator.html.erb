@@ -1,0 +1,19 @@
+<%= paginator.render do -%>
+  <table class="table pagination">
+    <tbody>
+      <tr class="text-center col-md-12 row">
+        <td class="col"><%= first_page_tag unless current_page.first? %></td>
+        <td class="col"><%= prev_page_tag unless current_page.first? %></td>
+        <% each_page do |page| -%>
+          <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+            <td class="col"><%= page_tag page %></td>
+          <% elsif !page.was_truncated? -%>
+            <td class="col"><%= gap_tag %></td>
+          <% end -%>
+        <% end -%>
+        <td class="col"><%= next_page_tag unless current_page.last? %></td>
+        <td class="col"><%= last_page_tag unless current_page.last? %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end -%>

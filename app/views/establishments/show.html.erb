@@ -58,19 +58,14 @@
 					<% if @establishment.addresses.count > 0 %>
 						<% @establishment.addresses.each do |address| %>
 							<tr>
-								<td>Cidade: <%= address.establishment_city.city.name %></td>
+								<td><b>Cidade:</b> <br> <%= address.establishment_city.city.name %></td>
+								<td colspan="2"><b>Rua:</b> <br> <%= address.street %></td>
 							</tr>
+
 							<tr>
-								<td>Rua: <%= address.street %></td>
-							</tr>
-							<tr>
-								<td>Bairro: <%= address.neighborhood %></td>
-							</tr>
-							<tr>
-								<td>Número: <%= address.number %></td>
-							</tr>
-							<tr>
-								<td>CEP: <%= address.cep %></td>
+								<td><b>Bairro:</b> <br> <%= address.neighborhood %></td>
+								<td><b>Número:</b> <br> <%= address.number %></td>
+								<td><b>CEP:</b> <br> <%= address.cep %></td>
 							</tr>
 						<% end %>
 					<% else %>
