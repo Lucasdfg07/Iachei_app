@@ -6,7 +6,9 @@
   </p>
 
   <%= search_form_for @q do |f| %>
-    <%= f.collection_select :name_eq, current_user.city.establishments, :id, :name, {include_blank: 'Pesquise por um estabelecimento'}, class: 'form-control' %>
+    <%= f.collection_select :id_eq, current_user.city.establishments, :id, :name, {include_blank: 'Pesquise por um estabelecimento'}, class: 'form-control' %>
+
+    <%= f.submit 'Procurar', class: 'form-control mt-2' %>
   <% end %>
 
   <script>
