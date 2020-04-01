@@ -19,7 +19,8 @@
 //= require popper
 //= require bootstrap-sprockets
 // 
-// 
+// Select2
+//= require select2
 //= require_tree .
 
 $( document ).on('turbolinks:load', function() {
@@ -38,4 +39,4 @@ $( document ).on('turbolinks:load', function() {
   	$('.click_navbar .close').toggle(200);
   	$('.click_navbar .open').toggle(200);
   });
-});
+});//= require serviceworker-companion

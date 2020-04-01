@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user.shopkeeper? && current_user.is_establshment_present(@establishment)%>
+<% if current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
 	<%= link_to 'Apagar Estabelecimento', @establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-left mb-2' %>
 	<section class="float-right mb-2">
 		<%= link_to 'Editar Estabelecimento', edit_establishment_path(@establishment), class: 'btn btn-info' %>
@@ -22,19 +22,19 @@
 
 	<section class="items">
 		<section class="row">
-			<section class="col-3">
+			<section class="col-3 call">
 				<%= image_tag 'call' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 place">
 				<%= image_tag 'place' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 star">
 				<%= image_tag 'star' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 world">
 				<%= image_tag 'world' %>
 			</section>
 		</section>
@@ -49,7 +49,11 @@
 			<section class="telephone mt-3">
 				<h4>Telefone:</h4>
 
-				<%= @establishment.telephone %>
+				<% if @establishment.telephone.present? %>
+					<%= @establishment.telephone %>
+				<% else %>
+					Não há um telefone cadastrado até o momento.
+				<% end %>
 			</section>
 
 			<section class="address mt-3">
@@ -58,20 +62,17 @@
 					<% if @establishment.addresses.count > 0 %>
 						<% @establishment.addresses.each do |address| %>
 							<tr>
-								<td>Cidade: <%= address.establishment_city.city.name %></td>
+								<td><b>Cidade:</b> <br> <%= address.establishment_city.city.name %></td>
+								<td colspan="2"><b>Rua:</b> <br> <%= address.street %></td>
 							</tr>
+
 							<tr>
-								<td>Rua: <%= address.street %></td>
+								<td><b>Bairro:</b> <br> <%= address.neighborhood %></td>
+								<td><b>Número:</b> <br> <%= address.number %></td>
+								<td><b>CEP:</b> <br> <%= address.cep %></td>
 							</tr>
-							<tr>
-								<td>Bairro: <%= address.neighborhood %></td>
-							</tr>
-							<tr>
-								<td>Número: <%= address.number %></td>
-							</tr>
-							<tr>
-								<td>CEP: <%= address.cep %></td>
-							</tr>
+
+							<tr><td colspan="3"></tr>
 						<% end %>
 					<% else %>
 						Endereço indisponível.
@@ -80,12 +81,24 @@
 			</section>
 
 			<section class="rating mt-3">
-				<h4>Avaliações:</h4>
+				<h4>Avaliação:</h4>
 
 				<% if @establishment.rating.present? %>
-					<%= @establishment.rating %>
+					<% (1..@establishment.get_rating).each do |i| %>
+                 	 	<%= image_tag 'rating' %>
+                	<% end %>
 				<% else %>
 					Não há avaliações ainda. <%= image_tag 'sad' %>
+				<% end %>
+
+				<%= form_for(@establishment, url: update_rating_establishment_path) do |f| %>
+					Dê a sua avaliação:
+					<%= f.number_field :rating, min: 1, class: 'form-control' %>
+					<small>1 - Ruim | 2 - Médio | 3 - Bom | 4 - Muito Bom | 5 Excelente</small>
+
+					<br>
+					
+					<%= f.submit 'Avaliar', class: 'btn btn-primary' %>
 				<% end %>
 			</section>
 
@@ -94,19 +107,27 @@
 				<br>
 				<section class="row">
 					<section class="col-3">
-						<a href="#" title="Facebook"><%= image_tag 'facebook' %></a>
+						<%= link_to @establishment.facebook do %>
+							<%= image_tag 'facebook' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Instagram"><%= image_tag 'instagram-sketched' %></a>
+						<%= link_to @establishment.instagram do %>
+							<%= image_tag 'instagram-sketched' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Whatsapp"><%= image_tag 'whatsapp' %></a>
+						<%= link_to @establishment.whatsapp do %>
+							<%= image_tag 'whatsapp' %>
+						<% end %>
 					</section>
 
 					<section class="col-3">
-						<a href="#" title="Site Pessoal"><%= image_tag 'internet' %></a>
+						<%= link_to @establishment.website do %>
+							<%= image_tag 'internet' %>
+						<% end %>
 					</section>
 				</section>
 			</section>	
@@ -137,7 +158,7 @@
 		</section>
 	</section>
 
-	<% if current_user.shopkeeper? && current_user.is_establshment_present(@establishment)%>
+	<% if current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
 		<section class="cities mt-4">
 			<h5>Cidades Atuantes</h5>
 
@@ -153,19 +174,17 @@
 
 			<section class="description">
 				<% if @establishment.addresses.count > 0 %>
-					<table class="table table-hover">
-						<% @establishment.addresses.each do |address| %>
-							<tr>
-								<td><%= address.establishment_city.city.name %></td>
-								<td><%= address.street %></td>
-								<td><%= address.neighborhood %></td>
-								<td><%= address.number %></td>
-								<td><%= address.cep %></td>
-								<td><%= link_to 'Editar', edit_address_path(address, establishment: @establishment) %></td>
-								<td><%= link_to 'Apagar', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-							</tr>
-						<% end %>
-					</table>
+					<section class="table_mobile">
+						<table class="table table-hover">
+							<% @establishment.addresses.each do |address| %>
+								<tr>
+									<td colspan="5"><%= address.establishment_city.city.name %></td>
+									<td><%= link_to 'Editar', edit_address_path(address, establishment: @establishment) %></td>
+									<td><%= link_to 'Apagar', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+								</tr>
+							<% end %>
+						</table>
+					</section>
 
 					<hr>
 

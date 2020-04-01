@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_city, only: [:update_user_city, :show, :edit, :update, :destroy]
 
 

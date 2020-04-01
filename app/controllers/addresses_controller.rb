@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_address, only: [:show, :edit, :update, :destroy]
   before_action :set_establishment, only: [:new, :create, :edit, :update]
 

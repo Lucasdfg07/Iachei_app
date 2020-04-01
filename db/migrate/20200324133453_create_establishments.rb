@@ -6,7 +6,7 @@ class CreateEstablishments < ActiveRecord::Migration[5.0]
     	t.string :name, null: false, unique: true
     	t.string :description, null: false
     	t.string :additional_information
-    	t.integer :rating
+    	t.string :rating, array: true, default: []
     	t.string :telephone
     	t.string :photo
       t.string :facebook

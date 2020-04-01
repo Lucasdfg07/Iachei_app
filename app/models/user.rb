@@ -25,12 +25,4 @@ class User < ApplicationRecord
   	def set_city(city)
   		self.update(city_id: city.id)
   	end
-
-    def is_establshment_present(establishment)
-      self.establishments.each do |self_establishment|
-        if self_establishment == establishment
-          return true
-        end
-      end
-    end
 end

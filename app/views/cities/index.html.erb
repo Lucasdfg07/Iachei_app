@@ -4,8 +4,14 @@
 <%= search_form_for @q, class: 'form-group text-center mt-3' do |f| %>
   <%= f.collection_select :id_eq, City.order(name: :ASC), :id, :name, {include_blank: 'Pesquise sua Cidade'}, {class: 'form-control mb-2'} %>
 
-  <%= f.submit 'Procurar', class: 'form-control' %>
+  <%= f.submit 'Procurar', class: 'form-control mt-2' %>
 <% end %>
+
+<script>
+    $( "#q_id_eq" ).select2({
+        placeholder: 'Pesquise sua Cidade'
+    });
+</script>
 
 <section class="city">
   <% @cities.each do |city| %>
@@ -31,8 +37,4 @@
 
 <% if current_user.admin? %>
   <%= link_to 'Cadastrar nova cidade', new_city_path, class: 'btn btn-primary mt-2' %>
-
-  <br>
-
-  <%= link_to 'Voltar', superuser_welcome_index_path, class: 'btn btn-warning mt-2' %>
 <% end %>

@@ -7,6 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= favicon_link_tag asset_path('/icons/favicon.ico')%>
   </head>
 
   <body>
@@ -19,7 +22,10 @@
         <p class="alert alert-success notice"><%= notice %></p>
       <% end %>
       
-      <%= render 'shared/navbar' if user_signed_in? %>
+      <% if user_signed_in? %>
+        <%= render 'shared/navbar' if current_user.city.present? %>
+      <% end %>
+      
       <section class="container text-center">
           <% if user_signed_in? %>
             <section class="content col-md-6 offset-md-3">

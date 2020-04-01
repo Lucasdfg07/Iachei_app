@@ -2,12 +2,8 @@ class WelcomeController < ApplicationController
 	def index
 
 		if user_signed_in?
-			if current_user.admin?
-				redirect_to superuser_welcome_index_path
-			else
-				if current_user.city.present?
-					redirect_to establishments_path
-				end
+			if current_user.city.present? || current_user.admin?
+				redirect_to establishments_path
 			end
 		end
 	end

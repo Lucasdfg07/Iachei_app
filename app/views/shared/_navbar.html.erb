@@ -18,6 +18,9 @@
 			<% if current_user.shopkeeper? %>
 				<li><%= link_to 'Meus Estabelecimentos', current_user_establishments_establishments_path %></li>
 				<li><%= link_to 'Cadastrar estabelecimento', new_establishment_path %></li>
+			<% elsif current_user.admin? %>
+				<li><%= link_to 'Cidades', cities_path %></li>
+				<li><%= link_to 'Categorias', categories_path %></li>
 			<% end %>
 
 			<li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>

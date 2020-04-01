@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       get 'category'
       get 'current_user_establishments'
     end
+
+    member do
+      patch 'update_rating'
+    end
   end
 
   resources :addresses

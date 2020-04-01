@@ -2,7 +2,7 @@
   <% @establishments.each do |establishment| %>
       <%= link_to establishment_path(establishment) do %>
         <section class="row establishments_div">
-          <section class="col-md-6">
+          <section class="col-md-6 perfil">
             <% if establishment.photo.present? %>
               <%= image_tag establishment.photo %>
             <% else %>
@@ -17,9 +17,9 @@
             </p>  
 
             <p>
-              <% if !establishment.rating.nil? %>
-                <% (1..establishment.rating).each do |i| %>
-                  *
+              <% if establishment.rating.count > 0 %>
+                <% (1..establishment.get_rating).each do |i| %>
+                  <%= image_tag 'rating' %>
                 <% end %>
               <% else %>
                 Sem avaliações

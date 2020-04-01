@@ -37,11 +37,11 @@
     </section>
 
     <section class="row auth">
-      <%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn col-md-6' do %>
+      <%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn col-md-6 mt-2' do %>
         <%= image_tag 'facebook_icon.png' %> Sign In With Facebook
       <% end %>
 
-      <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn col-md-5 offset-md-1' do %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn col-md-5 mt-2 offset-md-1' do %>
         <%= image_tag 'google.png' %> Sign In With Google
       <% end %>
     </section>
