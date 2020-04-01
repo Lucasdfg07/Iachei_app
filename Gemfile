@@ -25,6 +25,9 @@ gem 'omniauth-google-oauth2'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.3'
 
+# Generating PWA
+gem 'serviceworker-rails'
+
 # Search in forms
 gem 'ransack'
 gem "select2-rails"
