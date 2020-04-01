@@ -119,14 +119,9 @@ Here are the technologies used in this project.
 
 ![Admin Initial](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_initial_page.png)
 
-### You can register new cities:
+### You can register or edit somo City:
 
 ![Admin Cities](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_city.png)
-
-
-### Or Edit Some city
-
-![Admin City](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_city.png)
 
 
 ### And register or Edit some category
