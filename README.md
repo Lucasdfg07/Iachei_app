@@ -115,8 +115,6 @@ Here are the technologies used in this project.
 
 ### We can also edit or register some new address to the establishment. It's easier for franchises at the same city or not.
 
-![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment6.png)
-
 ### If you have the Admin Permission:
 
 ![Admin Initial](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_initial_page.png)
