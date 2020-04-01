@@ -1,5 +1,6 @@
 class EstablishmentsController < ApplicationController
-  before_action :set_establishment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_establishment, only: [:update_rating, :show, :edit, :update, :destroy]
   before_action :set_category, only: [:category]
 
   def index
@@ -86,7 +87,11 @@ class EstablishmentsController < ApplicationController
 
   def update
     if @establishment.update(establishment_params)
-      update_establishment_city(@establishment)
+
+      # Mantain current city and it's addresses and add or remove the others included or excluded
+      if params[:establishment][:cities].present?
+        update_establishment_city(@establishment)
+      end
 
       redirect_to @establishment, notice: 'Establishment was successfully updated.'
     else
@@ -94,6 +99,14 @@ class EstablishmentsController < ApplicationController
     end
   end
 
+
+  def update_rating
+    @rating = params[:establishment][:rating]
+
+    # Set rating
+    @establishment.set_rating(@rating)
+    redirect_to request.referrer, notice: 'Avaliação realizada com sucesso!'
+  end
 
   def destroy
     @establishment.destroy
@@ -115,6 +128,6 @@ class EstablishmentsController < ApplicationController
 
 
     def establishment_params
-      params.require(:establishment).permit(:category_id, :name, :description, :additional_information, :telephone, :photo)
+      params.require(:establishment).permit(:category_id, :name, :description, :additional_information, :rating, :telephone, :photo)
     end
 end

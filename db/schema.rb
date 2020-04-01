@@ -53,14 +53,18 @@ ActiveRecord::Schema.define(version: 20200326152155) do
   create_table "establishments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "category_id"
-    t.string   "name",                   null: false
-    t.string   "description",            null: false
+    t.string   "name",                                null: false
+    t.string   "description",                         null: false
     t.string   "additional_information"
-    t.integer  "rating"
+    t.string   "rating",                 default: [],              array: true
     t.string   "telephone"
     t.string   "photo"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "facebook"
+    t.string   "instagram"
+    t.string   "whatsapp"
+    t.string   "website"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["category_id"], name: "index_establishments_on_category_id", using: :btree
     t.index ["user_id"], name: "index_establishments_on_user_id", using: :btree
   end

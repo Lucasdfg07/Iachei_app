@@ -23,7 +23,7 @@
 
   <section class="row">
     <% @categories.each do |category| %>
-      <section class="col-4 image_category">
+      <section class="col-4 image_category mt-2">
         <%= link_to category_establishments_path(id: category) do %>
           <%= image_tag category.photo %>
         <% end %>

@@ -22,19 +22,19 @@
 
 	<section class="items">
 		<section class="row">
-			<section class="col-3">
+			<section class="col-3 call">
 				<%= image_tag 'call' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 place">
 				<%= image_tag 'place' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 star">
 				<%= image_tag 'star' %>
 			</section>
 
-			<section class="col-3">
+			<section class="col-3 world">
 				<%= image_tag 'world' %>
 			</section>
 		</section>
@@ -49,7 +49,11 @@
 			<section class="telephone mt-3">
 				<h4>Telefone:</h4>
 
-				<%= @establishment.telephone %>
+				<% if @establishment.telephone.present? %>
+					<%= @establishment.telephone %>
+				<% else %>
+					Não há um telefone cadastrado até o momento.
+				<% end %>
 			</section>
 
 			<section class="address mt-3">
@@ -75,12 +79,24 @@
 			</section>
 
 			<section class="rating mt-3">
-				<h4>Avaliações:</h4>
+				<h4>Avaliação:</h4>
 
 				<% if @establishment.rating.present? %>
-					<%= @establishment.rating %>
+					<% (1..@establishment.get_rating).each do |i| %>
+                 	 	<%= image_tag 'rating' %>
+                	<% end %>
 				<% else %>
 					Não há avaliações ainda. <%= image_tag 'sad' %>
+				<% end %>
+
+				<%= form_for(@establishment, url: update_rating_establishment_path) do |f| %>
+					Dê a sua avaliação:
+					<%= f.number_field :rating, min: 1, class: 'form-control' %>
+					<small>1 - Ruim | 2 - Médio | 3 - Bom | 4 - Muito Bom | 5 Excelente</small>
+
+					<br>
+					
+					<%= f.submit 'Avaliar', class: 'btn btn-primary' %>
 				<% end %>
 			</section>
 

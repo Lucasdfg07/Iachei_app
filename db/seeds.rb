@@ -16,4 +16,4 @@ City.create([
 			{name: 'Madagascar', description: 'lorem ipsum'}
 			])
 
-User.create(name: 'admin', email: 'admin@admin.com', password: 'admin123', role: 2)
+User.create(name: 'admin', email: 'admin@admin.com', city: City.first, password: 'admin123', role: 2)
