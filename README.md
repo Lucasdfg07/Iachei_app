@@ -57,51 +57,117 @@ Here are the technologies used in this project.
 
 ## How to use
 
-### 1 - The app's initial page have google and facebook auth to Login or register. You can choose which way is better for you :p
+### The app's initial page have google and facebook auth to Login or register. You can choose which way is better for you :p
 
-![Products image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/initial_page.png)
+![Initial image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/initial_page.png)
 
-![Products image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img10.png)
+![Login image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/login_page.png)
 
-### 2 - Register your stocked products and your periodic pucharses at the market.
+![Register image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/register_page.png)
 
-![Products image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img5.png)
+### Yayyy, we're logged. For now you have to choose if it's a watcher client or a shopkeeper.
 
-![Pucharse image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img3.png)
+![Choose type image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/choose_type.png)
 
-### 3 - Register your requests at your bar.
+### Now, tell the city that you live.
 
-![Requests image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img2.png)
+![Cities image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/choose_city.png)
 
-### 4 - See your table's requests at the sale's view.
+### We're on the way!!! That's the initial page of the app.
 
-![Sales first image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img1.png)
+#### If it has establishments registered:
 
-![Sales second image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img6.png)
+![Establishments image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/establishments2.png)
 
-### 5 - Choose if the payment will be on money or on cash.
+![Establishments image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/establishments3.png)
 
-### 6 - That's it. Close the bill and click into the graph button to see your results into the graph.
+#### But if it's not:
 
-![Path image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img8.png)
+![Establishments image](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/establishments.png)
 
-![Path image](https://github.com/Lucasdfg07/MamuteBar/blob/master/public/img7.png)
+### If you're a shopkeeper, you have some additional options on menu.
 
+![Shopkeeper initial page](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/shopkeeper_initial_page.png)
+
+### We can register a new establishment.
+
+![New Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/new_establishment.png)
+
+![New Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/new_establishment2.png)
+
+### Let's see my establishment's tab.
+
+![My Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/my_establishments.png)
+
+### Hmmm, so we can edit or delete the establishment if it's mine...
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment.png)
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment_2.png)
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment3.png)
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment4.png)
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment5.png)
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment6.png)
+
+### We can also edit or register some new address to the establishment. It's easier for franchises at the same city or not.
+
+![Show Establishment](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/show_establishment6.png)
+
+### If you have the Admin Permission:
+
+![Admin Initial](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_initial_page.png)
+
+### You can register new cities:
+
+![Admin Cities](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_cities.png)
+
+
+### Or Edit Some city
+
+![Admin City](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/about_city.png)
+
+
+### And register or Edit some category
+
+![Admin Categories](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_categories.png)
+
+
+![Admin Category](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_category.png)
+
+
+![Admin Category](https://github.com/Lucasdfg07/iachei_app/blob/master/public/iachei_photos/admin_category2.png)
 
 
 ## Features
 
 The main features of the application are:
- - Register bar product's.
- - Control the requests.
- - Control the sales.
- - Control the market pucharse.
- - Show the sales and the pucharses in a graph.
- - Control the payment method.
+ - All Users
+  - See Establishments.
+  - Rate the Establishment.
+  - See Category.
+  - See Establishment's Category.
+ - Shopkeeper
+  - Register new Establishments.
+  - Register Establishment's Address.
+  - Edit Establishment's Address.
+  - Delete Establishment's Address.
+  - Edit Establishment.
+  - Delete Establishment.
+ - Admin
+  - Register Categories.
+  - Edit Categories.
+  - Delete Categories.
+  - Register Cities.
+  - Edit Cities.
+  - Delete Cities.
 
 
 ## Links
-  - Repository: https://github.com/Lucasdfg07/MamuteBar
+  - Repository: https://github.com/Lucasdfg07/iachei_app
     - In case of sensitive bugs like security vulnerabilities, please contact
       Lucassiqueiraferandes07@gmail.com directly instead of using issue tracker. We value your effort
       to improve the security and privacy of this project!
