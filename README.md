@@ -136,27 +136,25 @@ Here are the technologies used in this project.
 
 
 ## Features
-
-The main features of the application are:
- - All Users
-  - See Establishments.
-  - Rate the Establishment.
-  - See Category.
-  - See Establishment's Category.
- - Shopkeeper
-  - Register new Establishments.
-  - Register Establishment's Address.
-  - Edit Establishment's Address.
-  - Delete Establishment's Address.
-  - Edit Establishment.
-  - Delete Establishment.
- - Admin
-  - Register Categories.
-  - Edit Categories.
-  - Delete Categories.
-  - Register Cities.
-  - Edit Cities.
-  - Delete Cities.
+  - All Users
+    - See Establishments.
+    - Rate the Establishment.
+    - See Category.
+    - See Establishment's Category.
+  - Shopkeeper
+    - Register new Establishments.
+    - Register Establishment's Address.
+    - Edit Establishment's Address.
+    - Delete Establishment's Address.
+    - Edit Establishment.
+    - Delete Establishment.
+  - Admin
+    - Register Categories.
+    - Edit Categories.
+    - Delete Categories.
+    - Register Cities.
+    - Edit Cities.
+    - Delete Cities.
 
 
 ## Links
