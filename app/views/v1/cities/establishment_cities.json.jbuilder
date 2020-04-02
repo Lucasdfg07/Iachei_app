@@ -1,0 +1,1 @@
+json.city_establishments @city_establishments
