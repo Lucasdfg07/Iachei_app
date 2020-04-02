@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :categories
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
+
+  resources :about
+  resources :categories
+  resources :addresses
+  resources :cities
+
   resources :establishments do
     collection do
       get 'category'
@@ -13,21 +18,27 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :addresses
-  
-  resources :cities
-  patch 'update_user_city', to: 'cities#update_user_city'
-
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
-
-  get 'welcome/set_user_role'
-  
-  resources :about
-
   namespace :superuser do
   	get 'welcome/index'
   end
 
+  namespace 'v1' do
+    resources :establishments do
+      collection do
+        get 'all_user_establishments'
+      end
+    end
 
+    resources :cities do
+      member do
+        get 'establishment_cities'
+      end
+    end
+  end
+
+  patch 'update_user_city', to: 'cities#update_user_city'
+
+  get 'welcome/set_user_role'
+  
   root "welcome#index"
 end
