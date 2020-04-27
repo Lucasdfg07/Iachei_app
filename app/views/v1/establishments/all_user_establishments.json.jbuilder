@@ -1,0 +1,1 @@
+json.establishments @establishments
