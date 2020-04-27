@@ -1,0 +1,16 @@
+<%= form_for(sub_category) do |f| %>
+	<%= hidden_field_tag :category, @category.id %>
+	<section class="field m-3">
+		Nome: <br>
+		<%= f.text_field :name, placeholder: 'Digite o nome da sub-categoria', class: 'form-control', required: true %>
+	</section>
+
+	<section class="field m-3">
+		Foto da sub-categoria: <br>
+		<%= f.file_field :photo %>
+	</section>
+
+	<section class="actions">
+		<%= f.submit 'Salvar', class: 'btn btn-primary' %>
+	</section>
+<% end %>

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   
   resources :about
 
+  resources :sub_categories
+
   namespace :superuser do
   	get 'welcome/index'
   end

@@ -11,5 +11,32 @@
 		<b><%= @category.name %></b>
 	</p>
 
+	<p>
+		Sub Categorias:
+	</p>
+
+	<section class="sub_categories float-right">
+		<%= link_to new_sub_category_path(category: params[:id]) do %>
+			<span class="btn btn-primary rounded-circle">+</span>
+		<% end %> 
+	</section>
+
+	<section class="table_mobile">
+		<table class="table table-hover">
+			<tbody>
+				<% @sub_categories.each do |sub_category| %>
+					<tr>
+						<td><%= sub_category.name %></td>
+						<td>
+							<% if sub_category.photo.present? %>
+								<%= image_tag sub_category.photo.thumb %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</section>
+
 	<%= link_to 'Voltar', categories_path, class: 'btn btn-warning' %>
 </section>

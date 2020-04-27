@@ -15,7 +15,11 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><% if category.photo.present? %><%= image_tag category.photo.thumb %><% end %></td>
+        <td>
+          <% if category.photo.present? %>
+            <%= image_tag category.photo.thumb %>
+          <% end %>
+        </td>
         <td><b><%= category.name %></b></td>
         <td><%= link_to 'Exibir', category, class: 'btn btn-dark' %></td>
         <td><%= link_to 'Editar', edit_category_path(category), class: 'btn btn-info' %></td>
