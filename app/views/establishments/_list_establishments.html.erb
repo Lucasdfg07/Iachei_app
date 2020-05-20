@@ -1,34 +1,32 @@
 <% if @establishments.count > 0 %>
   <% @establishments.each do |establishment| %>
       <%= link_to establishment_path(establishment) do %>
-        <section class="row establishments_div">
-          <section class="col-md-6 perfil">
-            <% if establishment.photo.present? %>
-              <%= image_tag establishment.photo %>
-            <% else %>
-              <%= image_tag 'no-photo' %>
-            <% end %>
-          </section>
-
-          <section class="col-md-5">
-            <h5><%= establishment.name %></h5>
-            <p>
-              <%= establishment.category.name %>
-            </p>  
-
-            <p>
-              <% if establishment.rating.count > 0 %>
-                <% (1..establishment.get_rating).each do |i| %>
-                  <%= image_tag 'rating' %>
-                <% end %>
+        <section class="establishments_div">
+          <section class="row">
+            <section class="col-md-6 perfil">
+              <% if establishment.photo.present? %>
+                <%= image_tag establishment.photo %>
               <% else %>
-                Sem avaliações
+                <%= image_tag 'no-photo' %>
               <% end %>
-            </p> 
-          </section>
+            </section>
 
-          <section class="col-md-1">
-            <section class="format-triangle"></section>
+            <section class="col-md-6">
+              <h5><%= establishment.name %></h5>
+              <p>
+                <%= establishment.category.name %>
+              </p>  
+
+              <p>
+                <% if establishment.rating.count > 0 %>
+                  <% (1..establishment.get_rating).each do |i| %>
+                    <%= image_tag 'rating' %>
+                  <% end %>
+                <% else %>
+                  Sem avaliações
+                <% end %>
+              </p> 
+            </section>
           </section>
         </section>
       <% end %>

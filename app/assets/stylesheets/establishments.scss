@@ -1,7 +1,29 @@
 .establishment_content {
+	.row {
+		#basic-addon1, .select2-selection {
+			height: 40px;
+			background-color: #FFBD4A;
+			width: 100%;
+		}
+
+
+		#basic-addon1 {
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+
+		.select2-selection {
+			padding-top: 5px;
+			border-top-left-radius: 0px;
+			border-bottom-left-radius: 0px;
+		}
+	}
+
+	h4, .color_blue, .user_city {
+		color: #005FC4;
+	}
 
 	.image_category {
-
 		img {
 			width: 100%;
 			border-radius: 10px;
@@ -9,12 +31,13 @@
 	}
 
 	.establishments_div {
+		border-radius: 20px;
 		width: 100%;
 		margin-top: 5px;
 		padding: 10px;
-		color: black;
+		color: #005FC4;
 		background-color: rgb(245,245,245);
-		border-bottom: 1px solid rgba(180,180,180,0.6);
+		box-shadow: 2px 2px 5px rgba(10,10,10,0.3);
 		
 		.perfil {
 			img {
@@ -24,24 +47,11 @@
 	}
 
 	.establishments_div:hover {
-		background-color: rgba(180,180,180,0.8);
-
-		.format-triangle {
-			background-color: rgba(180,180,180,0.8);
-		}
+		background-color: rgba(220,220,220,0.8);
 	}	
 
 	a:hover {
 		text-decoration: none;
-	}
-
-	.format-triangle {
-		background-color: rgb(245,245,245);
-		width: 40px;
-		height: 40px;
-		transform: rotate(45deg);
-		margin-top:20px;
-		margin-left:13px;
 	}
 }
 
@@ -53,10 +63,16 @@
 
 .about_establishment {
 	.items {
-		img {
-			background-color: rgba(245,245,245,0.8);
-			border-radius: 100%;
-			width: 50%;
+		.background-yellow {
+			background-color: #FFBD4A;
+			border-radius: 10px;
+			margin: 5px;
+			box-shadow: 2px -2px 3px rgba(10,10,10,0.4);
+
+			img {
+				width: 80%;
+				padding: 10px;
+			}
 		}
 	}
 
@@ -69,7 +85,7 @@
 	.establishment_icons_background {
 		position: absolute;
 		margin-top: -200px;
-		background-color: rgba(10,10,10,0.8);
+		background-color: rgba(255,189,74,0.7);
 		color: white;
 		width: 92.5%;
 		padding: 20px;
@@ -77,8 +93,6 @@
 		box-shadow: 0px 0px 25px rgba(245,245,245,0.9);
 
 		.close {
-			position: absolute;
-
 			img {
 				width: 40px;
 			}
@@ -113,4 +127,8 @@
 		box-shadow: -2px 2px 10px rgba(245,245,245,0.7);
 		padding: 15px;
 	}
+}
+
+.color_blue {
+	color: #005FC4;
 }

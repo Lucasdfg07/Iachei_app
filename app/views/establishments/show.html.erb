@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to (current_user.client?) ? establishments_path : current_user_establishments_establishments_path, class: 'float-left' do %>
+	<%= image_tag 'back.png', alt: 'back image' %>
+<% end %>
+
+<h4 class="color_blue"><%= @establishment.name %></h4>
+
 <% if current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
 	<%= link_to 'Apagar Estabelecimento', @establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-left mb-2' %>
 	<section class="float-right mb-2">
@@ -7,7 +13,7 @@
 	</section>
 <% end %>
 
-<section class="establishment_photo">
+<section class="establishment_photo mt-4">
 	<% if @establishment.photo.present? %>
 		<%= image_tag @establishment.photo %>
 	<% else %>
@@ -16,35 +22,36 @@
 </section>
 
 <section class="about_establishment mt-3">
-	<h4><%= @establishment.name %></h4>
-
-	<hr>
 
 	<section class="items">
 		<section class="row">
 			<section class="col-3 call">
-				<%= image_tag 'call' %>
+				<section class="background-yellow">
+					<%= image_tag 'telephone' %>
+				</section>
 			</section>
 
 			<section class="col-3 place">
-				<%= image_tag 'place' %>
+				<section class="background-yellow">
+					<%= image_tag 'local' %>
+				</section>
 			</section>
 
 			<section class="col-3 star">
-				<%= image_tag 'star' %>
+				<section class="background-yellow">
+					<%= image_tag 'star' %>
+				</section>
 			</section>
 
 			<section class="col-3 world">
-				<%= image_tag 'world' %>
+				<section class="background-yellow">
+					<%= image_tag 'share' %>
+				</section>
 			</section>
 		</section>
 	</section>
 
 	<section class="establishment_icons_background">
-		<section class="close offset-10">
-			<%= image_tag 'close_tab' %>
-		</section>
-
 		<section class="establishment_icons_information">
 			<section class="telephone mt-3">
 				<h4>Telefone:</h4>
@@ -114,7 +121,7 @@
 
 					<section class="col-3">
 						<%= link_to @establishment.instagram do %>
-							<%= image_tag 'instagram-sketched' %>
+							<%= image_tag 'instagram' %>
 						<% end %>
 					</section>
 
@@ -126,11 +133,16 @@
 
 					<section class="col-3">
 						<%= link_to @establishment.website do %>
-							<%= image_tag 'internet' %>
+							<%= image_tag 'copy_link' %>
 						<% end %>
 					</section>
 				</section>
-			</section>	
+			</section>
+
+			<section class="close offset-5 col-12 mt-4">
+				<%= image_tag 'close_tab' %>
+			</section>
+
 		</section>
 	</section>
 
@@ -197,5 +209,3 @@
 		</section>
 	<% end %>
 </section>
-
-<%= link_to 'Voltar', (current_user.client?) ? establishments_path : current_user_establishments_establishments_path, class: 'btn btn-warning mt-4'  %>

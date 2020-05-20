@@ -1,27 +1,31 @@
 <section class="establishment_content">
   <p id="notice"><%= notice %></p>
 
-  <p>
+  <p class="user_city">
     <b>Cidade:</b> <%= current_user.city.name %>
   </p>
 
   <%= search_form_for @q do |f| %>
-    <%= f.collection_select :id_eq, current_user.city.establishments, :id, :name, {include_blank: 'Pesquise por um estabelecimento'}, class: 'form-control' %>
+    <section class="row">
+      <span class="col-2" id="basic-addon1"><%= image_tag 'search' %></span>
 
-    <%= f.submit 'Procurar', class: 'form-control mt-2' %>
+      <%= f.collection_select :id_eq, current_user.city.establishments, :id, :name, {include_blank: ''}, class: 'form-control col-10' %>
+
+      <%= f.submit 'Procurar', class: 'form-control col-12 mt-2' %>
+    </section>
   <% end %>
 
   <script>
-      $( "#q_name_eq" ).select2({
-          placeholder: 'Pesquise por um estabelecimento'
+      $( "#q_id_eq" ).select2({
+        placeholder: 'O que você precisa?'
       });
   </script>
 
   <br>
 
-  <h4>Escolha uma categoria</h4>
+  <h4>Escolha uma Categoria</h4>
 
-  <hr>
+  <br>
 
   <section class="row">
     <% @categories.each do |category| %>
@@ -37,11 +41,11 @@
     <%= paginate @categories %>
   </section>
 
-  <hr>
+  <br>
 
-  <h5>Ou Selecione um estabelecimento</h5>
+  <h4>Escolha um Estabelecimento</h4>
 
-  <hr>
+  <br>
 
   <%= render 'list_establishments' %>
 </section>
