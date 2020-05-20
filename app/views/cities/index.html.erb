@@ -1,6 +1,3 @@
-
-<h3>Informe sua Cidade</h3>
-
 <%= search_form_for @q, class: 'form-group text-center mt-3' do |f| %>
   <%= f.collection_select :id_eq, City.order(name: :ASC), :id, :name, {include_blank: 'Pesquise sua Cidade'}, {class: 'form-control mb-2'} %>
 
@@ -19,7 +16,7 @@
       <section class="city_section mb-4">
         <section class="row">
           <section class="col-md-4">
-            <%= image_tag(city.photo.medium) if city.photo.present? %>
+            <%= image_tag 'monument' %>
           </section>
 
           <section class="col-md-8">

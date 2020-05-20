@@ -1,5 +1,4 @@
 class EstablishmentsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_establishment, only: [:update_rating, :show, :edit, :update, :destroy]
   before_action :set_category, only: [:category]
 

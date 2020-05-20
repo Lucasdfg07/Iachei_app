@@ -2,7 +2,7 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'col-md-4 offset-md-4 text-center'}) do |f| %>
 
     <section class="logo">
-      <%= image_tag 'iachei.png', alt: 'iachei logo' %>
+      <%= image_tag 'Logo.png', alt: 'iachei logo' %>
     </section>
 
     <section class="field input-group mb-2">
@@ -38,11 +38,11 @@
 
     <section class="row auth">
       <%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn col-md-6 mt-2' do %>
-        <%= image_tag 'facebook_icon.png' %> Sign In With Facebook
+        <%= image_tag 'facebook_logo.png' %> entrar com facebook
       <% end %>
 
       <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn col-md-5 mt-2 offset-md-1' do %>
-        <%= image_tag 'google.png' %> Sign In With Google
+        entrar com email
       <% end %>
     </section>
   <% end %>

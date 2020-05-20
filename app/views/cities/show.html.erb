@@ -1,16 +1,14 @@
 <section class="city_show">
+	<%= link_to cities_path, class: 'float-left back_button' do %>
+		<%= image_tag 'back.png', alt: 'back image' %>
+	<% end %>
+
 	<section class="perfil">
 		<%= image_tag (@city.photo) if @city.photo.present? %>
 	</section>
 
-	<%= link_to cities_path, class: 'float-left back_button' do %>
-		<%= image_tag 'go_back.png', alt: 'back image' %>
-	<% end %>
-
-	<section class="description mt-4">
+	<section class="description mt-4 pt-5">
 		<h4><%= @city.name %></h4>
-
-		<hr />
 
 		<p>
 			<%= @city.description %>

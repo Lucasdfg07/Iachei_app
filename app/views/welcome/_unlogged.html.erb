@@ -1,28 +1,23 @@
-<section class="auth_buttons">
-	<%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn' do %>
-		<%= image_tag 'facebook_icon.png' %> Sign In With Facebook
-	<% end %>
-
-	<br /><br /><br />
-
-
-	<%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn' do %>
-		<%= image_tag 'google.png' %> Sign In With Google
-	<% end %>
+<section class="container">
+	<%= image_tag 'Logo' %>
 </section>
 
 <footer class="fixed-bottom">
 	<section class="row">
-		<setion class="col-6">
-			<section class="float-right">
-				<%= link_to 'Login', new_user_session_path %>
-			</section>
+		<setion class="col-md-4 offset-md-4 facebook_btn">
+			<%= link_to user_facebook_omniauth_authorize_path do %>
+				<%= image_tag 'facebook_logo.png' %> entrar com facebook
+			<% end %>
 		</setion>
 
-		<section class="col-6">
-			<section class="float-left">
-				<%= link_to 'Cadastre-se', new_user_registration_path %>
-			</section>
+		<section class="col-md-4 offset-md-4 google_btn">
+			<%= link_to user_google_oauth2_omniauth_authorize_path do %>
+				entrar com email
+			<% end %>
+		</section>
+
+		<section class="col-md-4 offset-md-4 visitant mt-4">
+			<%= link_to 'entrar como visitante', cities_path %>
 		</section>
 	</section>
 </footer>

@@ -6,9 +6,8 @@
 
 		.logo {
 			img {
-				width: 100px;
+				width: 200px;
 				margin-top: -100px;
-				border-radius: 100%;
 			}
 		}
 
@@ -21,18 +20,20 @@
 
 			a {
 				padding:5px;
-				border-radius: 10px;
 				font-size: 0.7em;
 			}
 
 			.facebook_btn {
 				color: white;
 				background-color: #3b5998;
+				border-radius: 20px;
 			}
 
 			.google_btn {
 				color: black;
 				background-color: rgba(245,245,245,0.8);
+				border: 2px solid #3b5998;
+				border-radius: 20px;
 			}
 		}
 	}
