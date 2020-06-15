@@ -1,6 +1,6 @@
 <% if @establishments.count > 0 %>
   <% @establishments.each do |establishment| %>
-      <%= link_to establishment_path(establishment) do %>
+      <%= link_to (params[:city_id].present?) ? establishment_path(establishment, city_id: params[:city_id]) : establishment_path(establishment) do %>
         <section class="establishments_div">
           <section class="row">
             <section class="col-md-6 perfil">

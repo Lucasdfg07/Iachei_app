@@ -23,21 +23,21 @@
       <% end %>
       
       <% if user_signed_in? %>
-        <%= render 'shared/navbar' if current_user.city.present? %>
+        <section class="logout">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= image_tag 'logout', title: 'Sair', class: 'logout_btn' %> <b style="color: blue;">Sair</b>
+          <% end %>
+        </section>
       <% end %>
       
       <section class="container text-center">
-          <% if user_signed_in? %>
-            <section class="content col-md-6 offset-md-3">
+        <section class="content col-md-6 offset-md-3">
       		    <%= yield %>
-            </section>
-          <% else %>
-            <%= yield %>
-          <% end %>
+          </section>
       </section>
 
       <% if user_signed_in? %>
-          <%= render 'shared/footer_client' if current_user.client? %>
+          <%= render 'shared/footer' if current_user.city.present? %>
       <% end %> 
   	</main>
   </body>

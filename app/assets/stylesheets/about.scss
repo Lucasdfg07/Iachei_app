@@ -1,5 +1,27 @@
-.carousel-inner {
-	img {
-		width: 100%;
+.about {
+	h3 {
+		color: #005FC4;
+	}
+
+	.card {
+		padding: 20px;
+		margin: 20px;
+	}
+
+	.carousel-inner {
+		img {
+			width: 100%;
+		}
+	}
+
+	.col img {
+		border-radius: 100%;
+		height: 120px;
+		width: 120px;
+	}
+
+	.carousel-control-prev-icon, .carousel-control-next-icon {
+		background-color: #005FC4!important;
+		border-radius: 100%;
 	}
 }

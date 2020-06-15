@@ -14,13 +14,15 @@
 			<%= @city.description %>
 		</p>
 
-		<% if !current_user.admin? %>
+		<% if user_signed_in? && !current_user.admin? %>
 			<%= form_for @city, url: {action: :update_user_city} do |f| %>
 				<%= hidden_field_tag :id, @city.id %>
 				<%= f.submit 'Confirmar', class: 'btn btn-primary' %>
 			<% end %>
+		<% elsif !user_signed_in? %>
+			<%= link_to 'Confirmar', establishments_path(city_id: @city.id), class: 'btn btn-primary'  %>
 		<% end %>
 
-		<%= link_to 'Editar', edit_city_path(@city), class: 'btn btn-info mt-4' if current_user.admin? %>
+		<%= link_to 'Editar', edit_city_path(@city), class: 'btn btn-info mt-4' if user_signed_in? && current_user.admin? %>
 	</section>
 </section>

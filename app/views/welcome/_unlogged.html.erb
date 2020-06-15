@@ -2,22 +2,8 @@
 	<%= image_tag 'Logo' %>
 </section>
 
-<footer class="welcome_footer fixed-bottom">
-	<section class="row">
-		<setion class="col-md-4 offset-md-4 facebook_btn">
-			<%= link_to user_facebook_omniauth_authorize_path do %>
-				<%= image_tag 'facebook_logo.png' %> entrar com facebook
-			<% end %>
-		</setion>
+<footer class="fixed-bottom">
+	<%= render 'nav-footer' %>
 
-		<section class="col-md-4 offset-md-4 google_btn">
-			<%= link_to user_google_oauth2_omniauth_authorize_path do %>
-				entrar com email
-			<% end %>
-		</section>
-
-		<section class="col-md-4 offset-md-4 visitant mt-4">
-			<%= link_to 'entrar como visitante', cities_path %>
-		</section>
-	</section>
+	<%= render (params['user'].present?) ? 'shopkeeper_navigation' : 'visitant_navigation' %>
 </footer>

@@ -1,20 +1,26 @@
 <footer class="fixed-bottom client_footer text-center">
 	<section class="row">
-		<section class="col-4">
+		<section class="col-3">
 			<%= link_to cities_path do %>
 				<%= image_tag 'search_footer' %>
 			<% end %>
 		</section>
 
-		<section class="col-4">
+		<section class="col-3">
 			<%= link_to establishments_path do %>
 				<%= image_tag 'home' %>
 			<% end %>
 		</section>
 
-		<section class="col-4">
+		<section class="col-3">
 			<%= link_to edit_user_registration_path do %>
 				<%= image_tag 'avatar' %>
+			<% end %>
+		</section>
+
+		<section class="col-3">
+			<%= link_to about_index_path do %>
+				<%= image_tag 'information' %>
 			<% end %>
 		</section>
 	</section>

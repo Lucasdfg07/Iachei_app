@@ -82,6 +82,17 @@
 		}
 	}
 
+	.additional_information {
+		position: absolute;
+		margin-top: -200px;
+		background-color: rgba(10,10,200,0.6);
+		color: white;
+		width: 92.5%;
+		padding: 20px;
+		border-radius: 20px;
+		box-shadow: 0px 0px 25px rgba(245,245,245,0.9);
+	}
+
 	.establishment_icons_background {
 		position: absolute;
 		margin-top: -200px;
@@ -123,12 +134,20 @@
 	}
 
 	.description {
-		background-color: rgba(245,245,245,0.9);
-		box-shadow: -2px 2px 10px rgba(245,245,245,0.7);
 		padding: 15px;
 	}
 }
 
 .color_blue {
 	color: #005FC4;
+}
+
+.photo_input {
+	width: 100%;
+	height: 200px;
+	background-image: url('/assets/no-photo.png');
+
+	input[type='file'] {
+		display: none;
+	}
 }

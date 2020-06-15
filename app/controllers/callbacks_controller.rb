@@ -1,6 +1,6 @@
 class CallbacksController < Devise::OmniauthCallbacksController 
-	def facebook 
-		@user = User.from_omniauth(request.env["omniauth.auth"]) 
+	def facebook
+		@user = User.from_omniauth(request.env["omniauth.auth"], session[:role]) 
 
 		if @user.persisted? 
 			sign_in_and_redirect @user, :event => :authentication
@@ -10,7 +10,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
 	end
 
 	def google_oauth2
-	    @user = User.from_omniauth(request.env["omniauth.auth"]) 
+	    @user = User.from_omniauth(request.env["omniauth.auth"], session[:role]) 
 
 		if @user.persisted? 
 			sign_in_and_redirect @user, :event => :authentication

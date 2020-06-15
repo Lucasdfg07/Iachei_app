@@ -1,15 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to (current_user.client?) ? establishments_path : current_user_establishments_establishments_path, class: 'float-left' do %>
-	<%= image_tag 'back.png', alt: 'back image' %>
+<% if user_signed_in? %>
+	<%= link_to (current_user.client?) ? establishments_path : current_user_establishments_establishments_path, class: 'float-left' do %>
+		<%= image_tag 'back.png', alt: 'back image' %>
+	<% end %>
+<% else %>
+	<%= link_to establishments_path(city_id: params[:city_id]), class: 'float-left' do %>
+		<%= image_tag 'back.png', alt: 'back image' %>
+	<% end %>
 <% end %>
 
 <h4 class="color_blue"><%= @establishment.name %></h4>
 
-<% if current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
-	<%= link_to 'Apagar Estabelecimento', @establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-left mb-2' %>
-	<section class="float-right mb-2">
-		<%= link_to 'Editar Estabelecimento', edit_establishment_path(@establishment), class: 'btn btn-info' %>
+<% if user_signed_in? && current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
+	<section class="mt-4 pt-4">
+		<%= link_to 'Apagar Estabelecimento', @establishment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger float-left mb-2' %>
+		<section class="float-right mb-2">
+			<%= link_to 'Editar Estabelecimento', edit_establishment_path(@establishment), class: 'btn btn-info' %>
+		</section>
 	</section>
 <% end %>
 
@@ -115,25 +123,25 @@
 				<section class="row">
 					<section class="col-3">
 						<%= link_to @establishment.facebook do %>
-							<%= image_tag 'facebook' %>
+							<%= image_tag 'facebook' if @establishment.facebook.present? %>
 						<% end %>
 					</section>
 
 					<section class="col-3">
 						<%= link_to @establishment.instagram do %>
-							<%= image_tag 'instagram' %>
+							<%= image_tag 'instagram' if @establishment.instagram.present? %>
 						<% end %>
 					</section>
 
 					<section class="col-3">
 						<%= link_to @establishment.whatsapp do %>
-							<%= image_tag 'whatsapp' %>
+							<%= image_tag 'whatsapp' if @establishment.whatsapp.present? %>
 						<% end %>
 					</section>
 
 					<section class="col-3">
 						<%= link_to @establishment.website do %>
-							<%= image_tag 'copy_link' %>
+							<%= image_tag 'copy_link' if @establishment.website.present? %>
 						<% end %>
 					</section>
 				</section>
@@ -146,10 +154,24 @@
 		</section>
 	</section>
 
+	<section class="aditional_information_button mt-4 btn btn-primary">
+		Informações Adicionais
+	</section>
+
+	<section class="additional_information">
+		<section class="description">
+			<%= @establishment.additional_information %>
+		</section>
+
+		<section class="close_aditional mt-4">
+			<%= image_tag 'close_tab' %>
+		</section>
+	</section>
+
 	<br><br>
 
 	<section class="about">
-		<h5>Um pouco sobre a gente</h5>
+		<h5>Saiba Mais:</h5>
 
 		<hr>
 
@@ -158,19 +180,7 @@
 		</section>
 	</section>
 
-	<br>
-
-	<section class="additional_information mt-4">
-		<h5>Informações Adicionais <%= image_tag 'menu' %></h5>
-
-		<hr>
-
-		<section class="description">
-			<%= @establishment.additional_information %>
-		</section>
-	</section>
-
-	<% if current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
+	<% if user_signed_in? && current_user.shopkeeper? && @establishment.in?(current_user.establishments)%>
 		<section class="cities mt-4">
 			<h5>Cidades Atuantes</h5>
 

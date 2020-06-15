@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+  <section class="field m-3">
+    <label class="photo_input">
+      <%= f.file_field :photo, style: "display: none;", onchange: 'readURL(this)' %>
+      <img id="img_prev" src="#" alt="your image" />
+    </label>
+  </section>
+
+  <!-- Assume jQuery is loaded -->
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#img_prev')
+            .attr('src', e.target.result)
+            .width(200)
+            .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+
   <section class="field mb-4">
     Cidades que possuem o estabelecimento*:
     <%= f.collection_select :cities, City.order(name: :ASC), :id, :name, {}, multiple: true, class: 'form-control', required: true %>
@@ -32,12 +57,12 @@
 
   <section class="field mb-4">
     Descrição*:
-    <%= f.text_field :description, placeholder: 'Digite o descrição', class: 'form-control', required: true %>
+    <%= f.text_area :description, placeholder: 'Digite o descrição', class: 'form-control', required: true %>
   </section>
 
   <section class="field mb-4">
     Informações Adicionais*:
-    <%= f.text_field :additional_information, placeholder: 'Digite as informações', class: 'form-control', required: true %>
+    <%= f.text_area :additional_information, placeholder: 'Digite as informações', class: 'form-control', required: true %>
   </section>
 
   <section class="field mb-4">
@@ -63,11 +88,6 @@
   <section class="field mb-4">
     Link do Site Pessoal:
     <%= f.text_field :website, placeholder: 'Digite o link do website', class: 'form-control' %>
-  </section>
-
-  <section class="field m-3">
-    Foto do Estabelecimento: <br>
-    <%= f.file_field :photo %>
   </section>
 
   <div class="actions">

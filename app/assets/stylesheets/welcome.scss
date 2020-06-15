@@ -9,9 +9,22 @@
 	}
 }
 
+.visitant {
+	background-color: #005FC4!important;
+	color: white!important;
+}
+
+.shopkeeper {
+	background-color: #FFBD4A!important;
+	color: white!important;
+
+	.register_establishment_link {
+		color: white;
+	}
+}
+
 .welcome_footer {
 	height: 200px;
-	background-color: #005FC4;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
 	padding-top: 40px;

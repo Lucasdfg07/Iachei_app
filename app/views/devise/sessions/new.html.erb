@@ -25,12 +25,6 @@
     </section>
 
     <br />
-    
-    <section class="actions">
-      <%= link_to 'Registrar-se', new_user_registration_path, class: 'btn btn-success' %>
-    </section>
-
-    <br />
 
     <section class="actions">
       <%= link_to 'Esqueceu sua senha?', new_user_password_path, class: 'btn btn-warning' %>
@@ -38,10 +32,12 @@
 
     <section class="row auth">
       <%= link_to user_facebook_omniauth_authorize_path, class: 'facebook_btn col-md-6 mt-2' do %>
+        <% session[:role] = "shopkeeper" %>
         <%= image_tag 'facebook_logo.png' %> entrar com facebook
       <% end %>
 
       <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'google_btn col-md-5 mt-2 offset-md-1' do %>
+        <% session[:role] = "shopkeeper" %>
         entrar com email
       <% end %>
     </section>

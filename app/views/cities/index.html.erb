@@ -32,6 +32,6 @@
   <% end %>
 </section>
 
-<% if current_user.admin? %>
+<% if user_signed_in? && current_user.admin? %>
   <%= link_to 'Cadastrar nova cidade', new_city_path, class: 'btn btn-primary mt-2' %>
 <% end %>

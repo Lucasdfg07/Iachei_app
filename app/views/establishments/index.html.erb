@@ -1,15 +1,29 @@
 <section class="establishment_content">
   <p id="notice"><%= notice %></p>
+  
+  <% if user_signed_in? && current_user.shopkeeper? %>
+    <%= link_to 'Cadastrar estabelecimento', new_establishment_path, class: 'btn btn-info' %>
+    <%= link_to 'Meus Estabelecimentos', current_user_establishments_establishments_path, class: 'btn btn-warning' %>
+  <% end %>
 
-  <p class="user_city">
-    <b>Cidade:</b> <%= current_user.city.name %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Categorias', categories_path %> | 
+    <%= link_to 'Cidades', cities_path %>
+  <% end %>
+
+  <% if !user_signed_in? %>
+    <%= link_to 'Ir para outra cidade', cities_path, class: 'btn btn-info' %>
+  <% end %>
+
+  <p class="user_city mt-4">
+    <b>Cidade:</b> <%= (user_signed_in?) ? current_user.city.name : @city.name %>
   </p>
 
   <%= search_form_for @q do |f| %>
     <section class="row">
       <span class="col-2" id="basic-addon1"><%= image_tag 'search' %></span>
 
-      <%= f.collection_select :id_eq, current_user.city.establishments, :id, :name, {include_blank: ''}, class: 'form-control col-10' %>
+      <%= f.collection_select :id_eq, (user_signed_in?) ? current_user.city.establishments : @city.establishments, :id, :name, {include_blank: ''}, class: 'form-control col-10' %>
 
       <%= f.submit 'Procurar', class: 'form-control col-12 mt-2' %>
     </section>
@@ -30,7 +44,7 @@
   <section class="row">
     <% @categories.each do |category| %>
       <section class="col-4 image_category mt-2">
-        <%= link_to category_establishments_path(id: category) do %>
+        <%= link_to category_establishments_path(id: category, city_id: params[:city_id]) do %>
           <%= image_tag category.photo %>
         <% end %>
       </section>
@@ -48,4 +62,10 @@
   <br>
 
   <%= render 'list_establishments' %>
+  
+  <br /><br />
+  
+  <% if !user_signed_in? %>
+    <%= link_to 'Voltar à página principal', root_path, class: 'btn btn-warning' %>
+  <% end %>
 </section>

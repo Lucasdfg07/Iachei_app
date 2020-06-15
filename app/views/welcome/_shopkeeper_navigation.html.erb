@@ -1,0 +1,14 @@
+<section class="welcome_footer shopkeeper">
+    <section class="row">
+        <section class="col-md-4 offset-md-4 google_btn mb-4">
+            <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+                <% session[:role] = "shopkeeper" %>
+                entrar com email
+            <% end %>
+        </section>
+
+        <section class="col-md-4 offset-md-4 mt-4">
+            <%= link_to 'Cadastre sua loja', new_establishment_path, class: 'register_establishment_link' %>
+        </section>
+    </section>
+</section>

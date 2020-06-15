@@ -1,11 +1,21 @@
 class EstablishmentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :current_user_establishments, :category]
   before_action :set_establishment, only: [:update_rating, :show, :edit, :update, :destroy]
   before_action :set_category, only: [:category]
 
   def index
-    @q = current_user.city.establishments
-         .order(name: :ASC).ransack(params[:q])
-    @establishments = @q.result(distinct: true)
+    if user_signed_in?
+      @q = current_user.city.establishments
+          .order(name: :ASC).ransack(params[:q])
+      @establishments = @q.result(distinct: true)
+    else
+      @city = City.find(params[:city_id].to_i)
+
+      @q = @city.establishments
+          .order(name: :ASC).ransack(params[:q])
+          
+      @establishments = @q.result(distinct: true)
+    end
 
     @categories = Category.all.page(params[:page])
   end
@@ -16,6 +26,7 @@ class EstablishmentsController < ApplicationController
 
 
   def new
+    redirect_to establishments_path if current_user.client?
     @establishment = Establishment.new
   end
 
@@ -24,7 +35,12 @@ class EstablishmentsController < ApplicationController
   end
 
   def category
-    @establishments = current_user.city.establishments.where(category: @category)
+    if user_signed_in?
+      @establishments = current_user.city.establishments.where(category: @category)
+    else
+      @city = City.find(params[:city_id].to_i)
+      @establishments = @city.establishments.where(category: @category)
+    end
   end
 
   def current_user_establishments
