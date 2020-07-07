@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
 
   resources :about
@@ -37,8 +37,6 @@ Rails.application.routes.draw do
   end
 
   patch 'update_user_city', to: 'cities#update_user_city'
-
-  get 'welcome/set_user_role'
   
   root "welcome#index"
 end

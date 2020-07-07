@@ -5,6 +5,8 @@ $(document).on 'turbolinks:load', ->
 	$('.social').hide()
 	$('.rating').hide()
 
+	$('.additional_information').hide()
+
 	$('.call').on 'click', ->
 		$('.establishment_icons_background, .telephone').show(500)
 
@@ -19,3 +21,10 @@ $(document).on 'turbolinks:load', ->
 
 	$('.close').on 'click', ->
 		$('.establishment_icons_background, .telephone, .address, .social, .rating').hide(500)
+
+	
+	$('.aditional_information_button').on 'click', ->
+		$('.additional_information').show(500)
+
+	$('.close_aditional').on 'click', ->
+		$('.additional_information').hide(500)

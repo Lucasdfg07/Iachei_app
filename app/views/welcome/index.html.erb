@@ -1,7 +1,5 @@
 <section class="welcome">
-	<% if user_signed_in? %>
-		<%= render 'logged' %>
-	<% else %>
+	<% if !user_signed_in? %>
 		<%= render 'unlogged' %>
 	<% end %>
 </section>

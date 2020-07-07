@@ -5,5 +5,5 @@
 
 	<%= render 'list_establishments' %>
 
-	<%= link_to 'Voltar', establishments_path, class: 'btn btn-warning mt-4' %>
+	<%= link_to 'Voltar', establishments_path(city_id: params[:city_id]), class: 'btn btn-warning mt-4' %>
 </section>

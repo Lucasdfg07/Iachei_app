@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs col-md-4 offset-md-5">
+    <li class="nav-item">
+        <%= link_to root_path, class: (params['user'].present?) ? 'nav-link visitant' : 'nav-link active visitant' do %>
+            <%= image_tag 'perm_identity' %> 
+            Visitante
+        <% end %>
+    </li>
+
+    <li class="nav-item shopkeeper">
+        <%= link_to root_path(user: 'Lojista'), class: (params['user'].present?) ? 'nav-link active shopkeeper' : 'nav-link shopkeeper' do %>
+            <%= image_tag 'storefront' %> 
+            Lojista
+        <% end %>
+    </li>
+</ul>
