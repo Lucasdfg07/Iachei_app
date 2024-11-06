@@ -6,6 +6,9 @@
 Iachei APP is a PWA to show and know other establishments near of you!! You choose the city that you live and can find all the sales of the city that you live.
 Good to know places, see the rating and know where is, what products or services they sell, and much more!
 
+![image](https://github.com/user-attachments/assets/2a291a34-431c-4fd7-93b5-a574c9e302b3)
+
+
 
 ## Technology 
 
